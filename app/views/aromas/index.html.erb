@@ -1,0 +1,14 @@
+<h1>Aromas List</h1>
+
+<table class="table table-striped">
+  <tr> 
+    <th> Name </th>
+    <th> Id </th>
+  </tr> 
+    <% @aromas.each do |aroma| %>
+  <tr>
+    <td><%= aroma.name %></td>
+    <td><%= aroma.id %></td>
+  </tr>
+  <% end %>
+</table>
