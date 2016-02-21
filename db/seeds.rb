@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# Aroma.destroy_all
+# User.destroy_all
+
 Aroma.create name: 'bacon'
 Aroma.create name: 'leather'
 Aroma.create name: 'coffee'
@@ -37,4 +40,7 @@ Aroma.create name: 'grass'
 Aroma.create name: 'green pepper'
 Aroma.create name: 'pepperoni'
 Aroma.create name: 'mint'
+
+User.create email: 'admin@example.com', password: '12345678', password_confirmation: '12345678', admin: true
+User.create email: 'user@example.com', password: '12345678', password_confirmation: '12345678', admin: false
 

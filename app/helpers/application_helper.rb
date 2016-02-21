@@ -4,7 +4,7 @@ module ApplicationHelper
     flash_types = { 
       success: "alert-success", 
       error: "alert-danger", 
-      alert: "alert-warning", 
+      alert: "alert-danger", 
       notice: "alert-info" 
     }
 
