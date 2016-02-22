@@ -1,0 +1,28 @@
+<h1>Wine List</h1>
+
+<table class="table table-striped">
+  <tr> 
+    <th> Name </th>
+    <th> Body </th>
+    <th> Alcohol </th>
+    <th> Tannin </th>
+    <th> Acid </th>
+    <th> Sweetness </th>
+    <th> Sparkling </th>
+    <th> Id </th>
+    <th> Modify </th>
+  </tr> 
+    <% @wines.each do |wine| %>
+  <tr>
+    <td><%= wine.name %></td>
+    <td><%= wine.body %></td>
+    <td><%= wine.alcohol %></td>
+    <td><%= wine.tannin %></td>
+    <td><%= wine.acid %></td>
+    <td><%= wine.sweetness %></td>
+    <td><%= wine.sparkling %></td>
+    <td><%= wine.id %></td>
+    <td> Edit Delete</td>
+  </tr>
+  <% end %>
+</table>

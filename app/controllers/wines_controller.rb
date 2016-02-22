@@ -16,6 +16,26 @@ class WinesController < ApplicationController
     authorize! :create, @wine
   end
 
+  def index
+    @wines = Wine.all 
+    authorize! :read, @wines
+  end
+
+  def edit
+    @wines = Wine.all
+    @wine = @wines.find params[:id]
+  end
+
+  def update
+    @wines = Wine.all
+    @wine = @wines.find params[:id]
+    if @wine.update_attributes wine_params
+      redirect_to wines_path
+    else
+      render 'new'
+    end
+  end
+
   private
 
   def wine_params
