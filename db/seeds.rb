@@ -44,3 +44,21 @@ Aroma.create name: 'mint'
 User.create email: 'admin@example.com', password: '12345678', password_confirmation: '12345678', admin: true
 User.create email: 'user@example.com', password: '12345678', password_confirmation: '12345678', admin: false
 
+Wine.create name: 'sauvignon blanc', body: 1, alcohol: 1, tannin: 0, acid: 3, sweetness: 1, sparkling: false
+Wine.create name: 'riesling', body: 2, alcohol: 1, tannin: 0, acid: 3, sweetness: 2, sparkling: false
+Wine.create name: 'chardonnay', body: 3, alcohol: 2, tannin: 0, acid: 2, sweetness: 1, sparkling: false
+Wine.create name: 'rose', body: 3, alcohol: 1, tannin: 1, acid: 3, sweetness: 1, sparkling: false
+Wine.create name: 'pinot noir', body: 4, alcohol: 2, tannin: 1, acid: 3, sweetness: 1, sparkling: false
+Wine.create name: 'merlot', body: 5, alcohol: 2, tannin: 2, acid: 2, sweetness: 1, sparkling: false
+Wine.create name: 'cabernet sauvignon', body: 6, alcohol: 3, tannin: 3, acid: 1, sweetness: 1, sparkling: false
+
+
+
+
+
+
+
+
+
+
+

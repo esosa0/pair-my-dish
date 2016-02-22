@@ -1,0 +1,81 @@
+<h1>Create new wine</h1><br>
+
+<% if @wine.errors.any? %>
+  <div id="error_explanation">
+    <h4><%= pluralize(@wine.errors.count, "error") %> prohibited this wine from being saved:</h4>
+ 
+    <ul>
+    <% @wine.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @wine do |f| %>
+  <p><%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Chardonnay" %></p> <br>
+
+  <%= f.label :body %> (Select one)</p>
+  <p><%= f.radio_button :body, 1 %>
+  <%= label_tag(:body, "Light-bodied white") %>
+  <%= f.radio_button :body, 2 %>
+  <%= label_tag(:body, "Medium-bodied white") %>
+  <%= f.radio_button :body, 3 %>
+  <%= label_tag(:body, "Full-bodied white") %>
+  <%= f.radio_button :body, 4 %>
+  <%= label_tag(:body, "Rose") %></p>
+  <%= f.radio_button :body, 5 %>
+  <%= label_tag(:body, "Light-bodied red") %>
+  <%= f.radio_button :body, 6 %>
+  <%= label_tag(:body, "Medium-bodied red") %>
+  <%= f.radio_button :body, 7 %>
+  <%= label_tag(:body, "Full-bodied red") %></p><br>
+
+  <p><%= f.label :alcohol %></p>
+  <ul class = "list-inline">
+  <li><%= f.radio_button :alcohol, 1 %>
+  <%= label_tag(:alcohol, "Low-alcohol (under 12.5%)") %></li>
+  <li><%= f.radio_button :alcohol, 2 %>
+  <%= label_tag(:alcohol, "Medium-alcohol (12.5% - 13.5%)") %></li>
+  <li><%= f.radio_button :alcohol, 3 %>
+  <%= label_tag(:alcohol, "High-alcohol (13.5% - 15%)") %></li>
+  </ul><br>
+
+  <p><%= f.label :tannin %> </p>
+  <p><%= f.radio_button :tannin, 0 %>
+  <%= label_tag(:tannin, "No tannin (check for white wines)") %>
+  <p><%= f.radio_button :tannin, 1 %>
+  <%= label_tag(:tannin, "Low-tannin") %>
+  <%= f.radio_button :tannin, 2 %>
+  <%= label_tag(:tannin, "Medium-tannin") %>
+  <%= f.radio_button :tannin, 3 %>
+  <%= label_tag(:tannin, "High-tannin") %></p><br>
+
+  <p><%= f.label :acid %></p>
+  <p><%= f.radio_button :acid, 1 %>
+  <%= label_tag(:acid, "Low-acid") %>
+  <%= f.radio_button :acid, 2 %>
+  <%= label_tag(:acid, "Medium-acid") %>
+  <%= f.radio_button :acid, 3 %>
+  <%= label_tag(:acid, "High-acid") %></p><br>
+
+
+  <p><%= f.label :sweetness %> </p>
+  <p><%= f.radio_button :sweetness, 1 %>
+  <%= label_tag(:sweetness, "Dry") %>
+  <%= f.radio_button :sweetness, 2 %>
+  <%= label_tag(:sweetness, "Semi-sweet") %>
+  <%= f.radio_button :sweetness, 3 %>
+  <%= label_tag(:sweetness, "Sweet") %></p><br> 
+
+  <p><%= f.label :sparkling %> </p>
+  <p><%= f.check_box :sparkling %>
+  <%= label_tag(:sparkling, "This is a sparkling wine") %></p><br>
+
+  <p> <%= f.submit 'Create' %> </p>
+<% end %>
+
+
+   

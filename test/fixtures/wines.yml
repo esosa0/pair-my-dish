@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  body: 1
+  alcohol: 1
+  tannin: 1
+  acid: 1
+  sweetness: 1
+  sparkling: false
+
+two:
+  name: MyString
+  body: 1
+  alcohol: 1
+  tannin: 1
+  acid: 1
+  sweetness: 1
+  sparkling: false
