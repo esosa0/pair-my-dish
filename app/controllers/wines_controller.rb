@@ -5,6 +5,7 @@ class WinesController < ApplicationController
     @wine = Wine.new wine_params
     authorize! :create, @wine
     if @wine.save
+      flash[:success] = "Success."
       redirect_to wines_path
     else
       render "new"

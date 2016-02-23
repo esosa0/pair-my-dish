@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 html { 
   background: url('food-drink-kitchen-cutting-board.jpg') no-repeat center center fixed; 
@@ -25,9 +26,6 @@ body {
   text-align: center;
 }
 
-#error_explanation {
-  color: #FF0000; 
-}
 
 
 .list-inline {
@@ -39,3 +37,8 @@ body {
   padding: 3%;
   opacity: 0.90
 }
+
+#home-title {
+  font-family: 'Montserrat', sans-serif;
+}
+

@@ -1,0 +1,13 @@
+<% if @wine.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+     <h4><%= pluralize(@wine.errors.count, "error") %> prohibited this wine from being saved:</h4>
+    </div>
+ 
+    <ul>
+      <% @wine.errors.full_messages.each do |msg| %>
+        <li class="text-danger"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
