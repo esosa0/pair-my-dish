@@ -22,7 +22,8 @@
     <td><%= wine.sweetness %></td>
     <td><%= wine.sparkling %></td>
     <td><%= wine.id %></td>
-    <td> Edit Delete</td>
+    <td> <%= link_to("Edit", edit_wine_path(wine.id)) %> Delete</td>
+  
   </tr>
   <% end %>
 </table>
