@@ -1,4 +1,5 @@
 class Wine < ActiveRecord::Base
+  has_and_belongs_to_many :aromas
   validates :name, presence: true
   validates :body, presence: true  
   validates :alcohol, presence: true

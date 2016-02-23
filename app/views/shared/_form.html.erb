@@ -10,8 +10,9 @@
   </div>
 <% end %>
 
+<%=link_to("View wines", wines_path, class: "btn btn-primary btn-sm") %>
 
-<%= form_for @wine do |f| %>
+<p><%= form_for @wine do |f| %></p><br>
   
   <div class="form-group"><h4><%= f.label :name %>
 
@@ -77,6 +78,13 @@
   <p><h4><%= f.label :sparkling %></h4></p>
   <p><%= f.check_box :sparkling %>
   <%= label_tag(:sparkling, "This is a sparkling wine") %></p><br>
+
+  <p><h4>Aromas</h4> (Check all that apply)</p>
+
+  <div class="field">
+    <%= f.collection_check_boxes(:aroma_ids, Aroma.all, :id, :name) %>
+  </div>
+
 
   <p> <%= f.submit 'Save' %> </p>
 <% end %>

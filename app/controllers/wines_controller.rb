@@ -47,7 +47,7 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:name, :body, :alcohol, :tannin, :acid, :sweetness, :sparkling)
+    params.require(:wine).permit(:name, :body, :alcohol, :tannin, :acid, :sweetness, :sparkling, :aroma_ids => [])
   end
 
 end
