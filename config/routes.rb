@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :aromas
   resources :users
   resources :wines
+  resources :ingredients
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
