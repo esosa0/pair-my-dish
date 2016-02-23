@@ -36,6 +36,14 @@ class WinesController < ApplicationController
     end
   end
 
+  def destroy
+    @wines = Wine.all
+    @wine = @wines.find params[:id]
+    @wine.destroy
+    flash[:alert] = "Entry has been deleted"
+    redirect_to wines_path
+  end
+
   private
 
   def wine_params
