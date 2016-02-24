@@ -7,6 +7,13 @@ $(function() {
       $('#cooking-method-question').removeClass('hidden');
     });
   });
+
+
+  $('#view-all-dishes').click(function(event){
+    event.preventDefault();
+    $('#dishes-index').removeClass('hidden');
+  });
+
 });
 
 

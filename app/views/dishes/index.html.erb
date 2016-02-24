@@ -1,4 +1,23 @@
 <div class="box"> 
-  <h1>Your dish is <%= @my_dish.cooking_method.name %> <%= @my_dish.ingredient.name %>.</h1>
+  <h1>Your dish is <%= @my_dish %>.</h1>
+  <p><a href="#" id="view-all-dishes"> View all dishes </a></p>
+
+  <div class="hidden" id="dishes-index">
+    <table class="table table-striped">
+      <tr> 
+        <th> Dish name </th>
+        <th> Delete </th>
+      </tr> 
+        <% @dishes.each do |dish| %>
+          <%if dish.cooking_method %>
+      <tr>
+        <td><%= dish.cooking_method.name %> <%= dish.ingredient.name %></td>
+        <td> <%= link_to("Delete", dish_path(dish.id), method: :delete, data: {confirm: 'Are you sure you want to delete this dish?'}) %> </td>
+        <% end %>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
 
 </div>

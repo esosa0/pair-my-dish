@@ -17,8 +17,18 @@ class DishesController < ApplicationController
   end
 
   def index
-    @my_dish = Dish.last 
+    dish = Dish.last
+    @my_dish = "#{dish.cooking_method.name} #{dish.ingredient.name}"
+    @dishes = Dish.all
 
+  end
+
+  def destroy
+    @dishes = Dish.all
+    @dish = @dishes.find params[:id]
+    @dish.destroy
+    flash[:alert] = "Dish has been deleted"
+    redirect_to dishes_path
   end
 
   private
