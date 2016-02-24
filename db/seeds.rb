@@ -9,6 +9,7 @@
 Aroma.destroy_all
 User.destroy_all
 Wine.destroy_all
+Ingredient.destroy_all
 
 Aroma.create name: 'bacon'
 Aroma.create name: 'leather'
@@ -53,74 +54,23 @@ Wine.create name: 'pinot noir', body: 5, alcohol: 2, tannin: 1, acid: 3, sweetne
 Wine.create name: 'merlot', body: 6, alcohol: 2, tannin: 2, acid: 2, sweetness: 1, sparkling: false
 Wine.create name: 'cabernet sauvignon', body: 7, alcohol: 3, tannin: 3, acid: 1, sweetness: 1, sparkling: false
 
-Ingredient.create name: 'vegetables', cooking_method: 'raw'
-Ingredient.create name: 'vegetables', cooking_method: 'boiled'
-Ingredient.create name: 'vegetables', cooking_method: 'poached'
-Ingredient.create name: 'vegetables', cooking_method: 'steamed'
-Ingredient.create name: 'vegetables', cooking_method: 'braised'
-Ingredient.create name: 'vegetables', cooking_method: 'fried'
-Ingredient.create name: 'vegetables', cooking_method: 'sautéed'
-Ingredient.create name: 'vegetables', cooking_method: 'roasted'
-Ingredient.create name: 'vegetables', cooking_method: 'grilled'
+Ingredient.create name: 'vegetables', body_min: 1, body_max: 4
+Ingredient.create name: 'fish', body_min: 1, body_max: 5
+Ingredient.create name: 'seafood', body_min: 1, body_max: 5
+Ingredient.create name: 'chicken', body_min: 2, body_max: 5
+Ingredient.create name: 'pork', body_min: 5, body_max: 6
+Ingredient.create name: 'lamb', body_min: 5, body_max: 7
+Ingredient.create name: 'beef', body_min: 5, body_max: 7
 
-Ingredient.create name: 'fish', cooking_method: 'raw'
-Ingredient.create name: 'fish', cooking_method: 'boiled'
-Ingredient.create name: 'fish', cooking_method: 'poached'
-Ingredient.create name: 'fish', cooking_method: 'steamed'
-Ingredient.create name: 'fish', cooking_method: 'braised'
-Ingredient.create name: 'fish', cooking_method: 'fried'
-Ingredient.create name: 'fish', cooking_method: 'sautéed'
-Ingredient.create name: 'fish', cooking_method: 'roasted'
-Ingredient.create name: 'fish', cooking_method: 'grilled'
+CookingMethod.create name: 'raw', dry: false
+CookingMethod.create name: 'boiled', dry: false
+CookingMethod.create name: 'steamed', dry: false
+CookingMethod.create name: 'braised', dry: false
+CookingMethod.create name: 'sauteed', dry: true
+CookingMethod.create name: 'fried', dry: true
+CookingMethod.create name: 'roasted', dry: true
+CookingMethod.create name: 'grilled', dry: true
 
-Ingredient.create name: 'seafood', cooking_method: 'raw'
-Ingredient.create name: 'seafood', cooking_method: 'boiled'
-Ingredient.create name: 'seafood', cooking_method: 'poached'
-Ingredient.create name: 'seafood', cooking_method: 'steamed'
-Ingredient.create name: 'seafood', cooking_method: 'braised'
-Ingredient.create name: 'seafood', cooking_method: 'fried'
-Ingredient.create name: 'seafood', cooking_method: 'sautéed'
-Ingredient.create name: 'seafood', cooking_method: 'roasted'
-Ingredient.create name: 'seafood', cooking_method: 'grilled'
-
-Ingredient.create name: 'chicken', cooking_method: 'boiled'
-Ingredient.create name: 'chicken', cooking_method: 'poached'
-Ingredient.create name: 'chicken', cooking_method: 'steamed'
-Ingredient.create name: 'chicken', cooking_method: 'braised'
-Ingredient.create name: 'chicken', cooking_method: 'fried'
-Ingredient.create name: 'chicken', cooking_method: 'sautéed'
-Ingredient.create name: 'chicken', cooking_method: 'roasted'
-Ingredient.create name: 'chicken', cooking_method: 'grilled'
-
-Ingredient.create name: 'pork', cooking_method: 'cured'
-Ingredient.create name: 'pork', cooking_method: 'boiled'
-Ingredient.create name: 'pork', cooking_method: 'poached'
-Ingredient.create name: 'pork', cooking_method: 'steamed'
-Ingredient.create name: 'pork', cooking_method: 'braised'
-Ingredient.create name: 'pork', cooking_method: 'fried'
-Ingredient.create name: 'pork', cooking_method: 'sautéed'
-Ingredient.create name: 'pork', cooking_method: 'roasted'
-Ingredient.create name: 'pork', cooking_method: 'grilled'
-
-Ingredient.create name: 'lamb', cooking_method: 'raw'
-Ingredient.create name: 'lamb', cooking_method: 'boiled'
-Ingredient.create name: 'lamb', cooking_method: 'poached'
-Ingredient.create name: 'lamb', cooking_method: 'steamed'
-Ingredient.create name: 'lamb', cooking_method: 'braised'
-Ingredient.create name: 'lamb', cooking_method: 'fried'
-Ingredient.create name: 'lamb', cooking_method: 'sautéed'
-Ingredient.create name: 'lamb', cooking_method: 'roasted'
-Ingredient.create name: 'lamb', cooking_method: 'grilled'
-
-Ingredient.create name: 'beef', cooking_method: 'raw'
-Ingredient.create name: 'beef', cooking_method: 'boiled'
-Ingredient.create name: 'beef', cooking_method: 'poached'
-Ingredient.create name: 'beef', cooking_method: 'steamed'
-Ingredient.create name: 'beef', cooking_method: 'braised'
-Ingredient.create name: 'beef', cooking_method: 'fried'
-Ingredient.create name: 'beef', cooking_method: 'sautéed'
-Ingredient.create name: 'beef', cooking_method: 'roasted'
-Ingredient.create name: 'beef', cooking_method: 'grilled'
 
 
 
