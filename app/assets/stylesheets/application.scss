@@ -33,6 +33,7 @@ body {
 }
 
 .box {
+  border-radius: 10px;
   background-color: #FFF;
   padding: 3%;
   opacity: 0.90
@@ -41,4 +42,7 @@ body {
 #home-title {
   font-family: 'Montserrat', sans-serif;
 }
+
+div.hidden { 
+  display: none; }
 
