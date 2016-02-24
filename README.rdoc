@@ -26,3 +26,36 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Main ingredient affects: body
+Cooking method affects: body
+Sauce affects: alcohol, tannin, acid, sparkling
+Secondary ingredient: affect aromas
+
+Dish: 
+  belongs_to main ingredient
+  belongs_to cooking method
+  belongs_to sauce
+
+  has_many secondary_ingredients
+  
+  sweet:boolean
+  spicy:boolean
+
+Main ingredient:
+  name:string
+  body_max:integer
+  body_min: integer
+
+Cooking method:
+  name:string
+  dry:boolean
+
+Sauce: 
+  name:string
+  alcohol_min:integer
+  alcohol_max:integer
+  tannin_min:integer
+  tannin_max:integer
+  acid_min:integer
+  acid_max:integer
