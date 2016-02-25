@@ -14,6 +14,11 @@ $(function() {
     });
   });
 
+  $('#save-dish').click(function(event){
+    event.preventDefault();
+    $('#sign-up-modal').modal('show');
+  });
+
 
   $('#view-all-dishes').click(function(event){
     event.preventDefault();
