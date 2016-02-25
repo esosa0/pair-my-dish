@@ -8,15 +8,19 @@ $(function() {
   });
 
     $('#cooking-method-question-button').click(function(event){
-    $('#cooking-method-question').fadeTo(500, 0, function(){
-      $('#cooking-method-question').addClass('hidden');
-      $('#submit-dish').removeClass('hidden');
-    });
+      $('#cooking-method-question').fadeTo(500, 0, function(){
+        $('#cooking-method-question').addClass('hidden');
+        $('#submit-dish').removeClass('hidden');
+      });
   });
 
   $('#save-dish').click(function(event){
     event.preventDefault();
     $('#sign-up-modal').modal('show');
+  });
+
+  $("#new_user").on("ajax:success", function (e, data, status, xhr) {
+    $("#new_dish").submit();
   });
 
 

@@ -7,12 +7,13 @@ class DishesController < ApplicationController
   end
 
   def create
-    @dish = Dish.new dish_params
+    @dish = current_user.dishes.build dish_params
     if @dish.save
       flash[:success] = "Success! Dish was saved."
       redirect_to dishes_path
     else
       flash[:danger] = "Dish was not saved"
+      @user = current_user 
       @ingredients = Ingredient.all
       @cooking_methods = CookingMethod.all 
       render "new"
@@ -20,9 +21,10 @@ class DishesController < ApplicationController
   end
 
   def index
-    dish = Dish.last
+    @dishes = current_user.dishes
+    dish = @dishes.last
     @my_dish = "#{dish.cooking_method.name} #{dish.ingredient.name}"
-    @dishes = Dish.all
+
 
   end
 
