@@ -2,7 +2,8 @@ class DishesController < ApplicationController
   def new
     @dish = Dish.new 
     @ingredients = Ingredient.all
-    @cooking_methods = CookingMethod.all 
+    @cooking_methods = CookingMethod.all
+    @user = User.new 
   end
 
   def create
