@@ -1,10 +1,16 @@
 $(function() {
 
   $('#ingredient-question-button').click(function(event){
-    event.preventDefault();
     $('#ingredient-question').fadeTo(500, 0, function(){
       $('#ingredient-question').addClass('hidden');
       $('#cooking-method-question').removeClass('hidden');
+    });
+  });
+
+    $('#cooking-method-question-button').click(function(event){
+    $('#cooking-method-question').fadeTo(500, 0, function(){
+      $('#cooking-method-question').addClass('hidden');
+      $('#submit-dish').removeClass('hidden');
     });
   });
 

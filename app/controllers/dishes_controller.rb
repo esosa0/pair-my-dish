@@ -9,9 +9,11 @@ class DishesController < ApplicationController
     @dish = Dish.new dish_params
     if @dish.save
       flash[:success] = "Success! Dish was saved."
-    redirect_to dishes_path
+      redirect_to dishes_path
     else
       flash[:danger] = "Dish was not saved"
+      @ingredients = Ingredient.all
+      @cooking_methods = CookingMethod.all 
       render "new"
     end
   end

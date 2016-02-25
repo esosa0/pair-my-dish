@@ -3,6 +3,7 @@ class CreateDishes < ActiveRecord::Migration
     create_table :dishes do |t|
       t.belongs_to :ingredient, index: true
       t.belongs_to :cooking_method, index: true
+      t.belongs_to :user, index: true
       t.boolean :sweet
       t.boolean :spicy
 
