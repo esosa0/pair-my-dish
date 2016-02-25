@@ -1,9 +1,8 @@
 
 <%= form_for @dish do |f| %>
 
-<!-- main ingredient question_________________________ -->
 
-  <div class="box" id="ingredient-question">
+  <div class="box" >
     <div class="row">
       
       <div class="col-md-2"></div>
@@ -13,75 +12,52 @@
     </div>
     <div class="row">
       <div class="col-md-2"></div>
-      <div class="col-md-8"> <h1 id="home-title"> What is your main ingredient?</h1> </div>
+      <div class="col-md-8"></div>
       <div class="col-md-2"></div>
     </div>
     <div class="row">
       <div class="col-md-2"></div>
-      <div class="col-md-8" id="ingredient-question-button">
-        <% @ingredients.each do |ingredient| %>
-          <%= f.radio_button :ingredient_id, ingredient.id %>
-          <%= f.label :ingredient_id, ingredient.name %>
-        <% end %>
+
+<!-- main ingredient question -->
+
+      <div id="ingredient-question"> 
+        <div class="col-md-8" id="ingredient-question-button">
+          <h1 id="home-title"> What is your main ingredient?</h1>
+          <% @ingredients.each do |ingredient| %>
+            <%= f.radio_button :ingredient_id, ingredient.id %>
+            <%= f.label :ingredient_id, ingredient.name %>
+          <% end %>
+        </div>
       </div>
-      <div class="col-md-2"></div>
-    </div>
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8"></div>
-      <div class="col-md-2"></div>
-    </div>
-  </div>
 
-
-  <!-- cooking method question_________________________ -->
-
-  <div class="box hidden" id="cooking-method-question">
-    <div class="row">
-      
-      <div class="col-md-2"></div>
-      <div class="col-md-8"></div>
-      <div class="col-md-2"></div>
-      
-    </div>
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8"> <h1 id="home-title"> How are you cooking it?</h1> </div>
-      <div class="col-md-2"></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8" id="cooking-method-question-button">
-        <% @cooking_methods.each do |cooking_method| %>
-          <%= f.radio_button :cooking_method_id, cooking_method.id %>
-          <%= f.label :cooking_method_id, cooking_method.name %>
-        <% end %>
-      </div>
-      <div class="col-md-2"></div>
-    </div>
+<!-- cooking method question -->
     
+      <div class="hidden" id="cooking-method-question"> 
+        <div class="col-md-8" id="cooking-method-question-button">
+          <h1 id="home-title"> How are you cooking it?</h1>
+            <% @cooking_methods.each do |cooking_method| %>
+              <%= f.radio_button :cooking_method_id, cooking_method.id %>
+              <%= f.label :cooking_method_id, cooking_method.name %>
+            <% end %>
+        </div>
+      </div>
+
+<!-- submit-dish  -->   
+
+      <div class="hidden" id="submit-dish">
+        <div class="col-md-8" id="cooking-method-question-button">
+          <h1 id="home-title">You're finished!</h1>
+          <button class="btn btn-primary btn-lg" id="save-dish" type="submit">See my dish</button>
+        </div>
+      </div>
+
+      <div class="col-md-2"></div>
+      </div>
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8"></div>
       <div class="col-md-2"></div>
     </div>
   </div>
-
-
-<!-- ____________submit-dish_________________________ -->
-
-<div class="box hidden" id="submit-dish">
-  <h1>You're finished!</h1>
-  <button class="btn btn-primary btn-lg" id="save-dish" type="submit">See my dish</button>
-</div>
 
 <% end %>
-
-<!-- ____________see-dish_________________________ -->
-
-<div class="box hidden" id="see-dish">
-  <h1> Your dish is <%= @my_dish %> </h1>
-</div>
-  
-
