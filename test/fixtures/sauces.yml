@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  alcohol_min: 1
+  alcohol_max: 1
+  tannin_min: 1
+  tannin_max: 1
+  acid_min: 1
+  acid_max: 1
+
+two:
+  name: MyString
+  alcohol_min: 1
+  alcohol_max: 1
+  tannin_min: 1
+  tannin_max: 1
+  acid_min: 1
+  acid_max: 1
