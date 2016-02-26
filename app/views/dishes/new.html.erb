@@ -42,6 +42,18 @@
         </div>
       </div>
 
+<!-- sauce method question -->
+
+      <div class="hidden" id="sauce-question"> 
+        <div class="col-md-8" id="sauce-question-button">
+          <h1 id="home-title"> What kind of sauce are you adding?</h1>
+            <% @sauces.each do |sauce| %>
+              <%= f.radio_button :sauce_id, sauce.id %>
+              <%= f.label :sauce_id, sauce.name %>
+            <% end %>
+        </div>
+      </div>
+
 <!-- submit-dish  -->   
 
       <div class="hidden" id="submit-dish">

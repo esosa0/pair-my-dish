@@ -1,0 +1,16 @@
+<div class="box"> 
+  <h1>Sauces</h1>
+  <table class="table table-striped">
+    <tr> 
+      <th> Sauce name </th>
+      <th> Delete </th>
+    </tr> 
+      <% @sauces.each do |sauce| %>
+    <tr>
+      <td><%= sauce.name %></td>
+      <td><%= link_to("Delete", sauce_path(sauce.id), method: :delete, data: {confirm: 'Are you sure you want to delete this sauce?'}) %> </td>
+      <% end %>
+
+    </tr>
+  </table>
+</div>

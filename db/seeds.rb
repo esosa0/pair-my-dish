@@ -10,6 +10,8 @@ Aroma.destroy_all
 User.destroy_all
 Wine.destroy_all
 Ingredient.destroy_all
+CookingMethod.destroy_all
+Sauce.destroy_all
 
 Aroma.create name: 'bacon'
 Aroma.create name: 'leather'
@@ -71,6 +73,14 @@ CookingMethod.create name: 'fried', dry: true
 CookingMethod.create name: 'roasted', dry: true
 CookingMethod.create name: 'grilled', dry: true
 
+Sauce.create name: "tomato sauce", alcohol_min: 1, alcohol_max: 3, tannin_min:0, tannin_max:3, acid_min: 3, acid_max: 3
+Sauce.create name: "olive oil", alcohol_min: 1, alcohol_max: 2, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
+Sauce.create name: "cream sauce", alcohol_min: 2, alcohol_max: 3, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
+Sauce.create name: "butter sauce", alcohol_min: 2, alcohol_max: 3, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
+Sauce.create name: "BBQ sauce", alcohol_min: 2, alcohol_max: 3, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
+Sauce.create name: "lemon sauce", alcohol_min: 1, alcohol_max: 2, tannin_min:0, tannin_max:3, acid_min: 3, acid_max: 3
+Sauce.create name: "pesto", alcohol_min: 1, alcohol_max: 2, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
+Sauce.create name: "cheese sauce", alcohol_min: 2, alcohol_max: 3, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
 
 
 

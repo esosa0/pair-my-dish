@@ -11,7 +11,7 @@
         <% @dishes.each do |dish| %>
           <%if dish.cooking_method %>
       <tr>
-        <td><%= dish.cooking_method.name %> <%= dish.ingredient.name %></td>
+        <td><%= dish.cooking_method.name %> <%= dish.ingredient.name %> with <%= dish.sauce.name %> </td>
         <td> <%= link_to("Delete", dish_path(dish.id), method: :delete, data: {confirm: 'Are you sure you want to delete this dish?'}) %> </td>
         <% end %>
 
