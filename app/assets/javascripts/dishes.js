@@ -1,28 +1,48 @@
 $(function() {
 
-  // var dish = {};
+  var dish = {};
 
-  $('#ingredient-question-button').click(function(event){
+  $('.ingredient-question-button').click(function(event){   
     $('#ingredient-question').fadeTo(500, 0, function(){
       $('#ingredient-question').addClass('hidden');
       $('#cooking-method-question').removeClass('hidden');
     });
-    // var name = $(e).data('name');
-    // dish.name = name;
+
+  var ingredient = $(event.currentTarget).data('ingredient');
+  dish.ingredient = ingredient;
+  
+
+
   });
 
-    $('#cooking-method-question-button').click(function(event){
-      $('#cooking-method-question').fadeTo(500, 0, function(){
-        $('#cooking-method-question').addClass('hidden');
-        $('#sauce-question').removeClass('hidden');
-      });
+  $('.cooking-method-question-button').click(function(event){
+    
+    $('#cooking-method-question').fadeTo(500, 0, function(){
+      $('#cooking-method-question').addClass('hidden');
+      $('#sauce-question').removeClass('hidden');
+    });
+  
+    var cookingmethod = $(event.currentTarget).data('cooking-method');
+    dish.cookingmethod = cookingmethod
+    
+
   });
 
-    $('#sauce-question-button').click(function(event){
-      $('#sauce-question').fadeTo(500, 0, function(){
-        $('#sauce-question').addClass('hidden');
-        $('#submit-dish').removeClass('hidden');
-      });
+  $('.sauce-question-button').click(function(event){
+    $('#sauce-question').fadeTo(500, 0, function(){
+      $('#sauce-question').addClass('hidden');
+      $('#submit-dish').removeClass('hidden');
+    });
+
+    var sauce = $(event.currentTarget).data('sauce');
+    dish.sauce = sauce
+
+   $('#show-dish-name').append(dish.cookingmethod)
+   $('#show-dish-name').append(" ")
+   $('#show-dish-name').append(dish.ingredient) 
+   $('#show-dish-name').append(" with ")
+   $('#show-dish-name').append(dish.sauce)
+
   });    
 
   $('#save-dish').click(function(event){
