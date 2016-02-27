@@ -82,6 +82,39 @@ Sauce.create name: "lemon sauce", alcohol_min: 1, alcohol_max: 2, tannin_min:0, 
 Sauce.create name: "pesto", alcohol_min: 1, alcohol_max: 2, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
 Sauce.create name: "cheese sauce", alcohol_min: 2, alcohol_max: 3, tannin_min:0, tannin_max:3, acid_min: 1, acid_max: 3
 
+Side.create name: "potatoes"
+Side.create name: "mushrooms"
+Side.create name: "peppers"
+Side.create name: "nuts"
+Side.create name: "tomatoes"
+Side.create name: "corn"
+Side.create name: "asparagus"
+Side.create name: "olives"
+
+
+Side.create name: "raspberries"
+Side.create name: "blueberries"
+Side.create name: "apples"
+Side.create name: "lemon"
+Side.create name: "orange"
+Side.create name: "coconut"
+
+Side.create name: "toast"
+
+Side.create name: "honey"
+Side.create name: "cinnamon"
+Side.create name: "chocolate"
+Side.create name: "pepper"
+
+Side.create name: "mint"
+Side.create name: "cilantro"
+Side.create name: "parsley"
+Side.create name: "eucalyptus"
+
+
+Side.create name: "bacon"
+Side.create name: "jam"
+
 
 
 

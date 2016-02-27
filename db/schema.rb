@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225153711) do
+ActiveRecord::Schema.define(version: 20160226114710) do
 
   create_table "aromas", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20160225153711) do
   add_index "dishes", ["sauce_id"], name: "index_dishes_on_sauce_id"
   add_index "dishes", ["user_id"], name: "index_dishes_on_user_id"
 
+  create_table "dishes_sides", id: false, force: :cascade do |t|
+    t.integer "dish_id"
+    t.integer "side_id"
+  end
+
+  add_index "dishes_sides", ["dish_id"], name: "index_dishes_sides_on_dish_id"
+  add_index "dishes_sides", ["side_id"], name: "index_dishes_sides_on_side_id"
+
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -68,6 +76,12 @@ ActiveRecord::Schema.define(version: 20160225153711) do
     t.integer  "acid_max"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "sides", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

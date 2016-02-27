@@ -54,6 +54,20 @@
         </div>
       </div>
 
+<!-- side question -->
+
+
+    <div class="hidden" id="side-question"> 
+      <div class="col-md-8">
+        <h1 class="home-title">Are you using any of these ingredients?</h1>
+        <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) do |side| %>
+          <%= side.label { side.check_box(data: { side: side.text }) + side.text  } %>
+        <% end %>
+        <p><a href="#" class="btn btn-primary btn-lg" id="side-question-button">Done</a></p>
+      </div>
+    </div>
+
+
 <!-- submit-dish  -->   
 
       <div class="hidden" id="submit-dish">

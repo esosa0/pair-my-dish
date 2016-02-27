@@ -4,7 +4,9 @@ class DishesController < ApplicationController
     @ingredients = Ingredient.all
     @cooking_methods = CookingMethod.all
     @sauces = Sauce.all
+    @sides = Side.all
     @user = User.new 
+
   end
 
   def create
@@ -18,16 +20,14 @@ class DishesController < ApplicationController
       @ingredients = Ingredient.all
       @cooking_methods = CookingMethod.all 
       @sauces = Sauce.all
+      @sides = Side.all
       render "new"
     end
   end
 
   def index
     @dishes = current_user.dishes
-    dish = @dishes.last
-    @my_dish = "#{dish.cooking_method.name} #{dish.ingredient.name} with #{dish.sauce.name}"
-
-
+    @dish = @dishes.last
   end
 
   def destroy
@@ -41,6 +41,6 @@ class DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:ingredient_id, :cooking_method_id, :sauce_id)
+    params.require(:dish).permit(:ingredient_id, :cooking_method_id, :sauce_id, :side_ids => [])
   end
 end

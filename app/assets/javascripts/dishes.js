@@ -31,19 +31,44 @@ $(function() {
   $('.sauce-question-button').click(function(event){
     $('#sauce-question').fadeTo(500, 0, function(){
       $('#sauce-question').addClass('hidden');
-      $('#submit-dish').removeClass('hidden');
+      $('#side-question').removeClass('hidden');
     });
 
     var sauce = $(event.currentTarget).data('sauce');
     dish.sauce = sauce
 
-   $('#show-dish-name').append(dish.cookingmethod)
-   $('#show-dish-name').append(" ")
-   $('#show-dish-name').append(dish.ingredient) 
-   $('#show-dish-name').append(" with ")
-   $('#show-dish-name').append(dish.sauce)
+  });
 
-  });    
+  function arrayToSentence (arr) {
+    var last = arr.pop();
+    return arr.join(', ') + ' and ' + last;
+  } 
+
+  $('#side-question-button').click(function(event){
+    var sides = [];
+    var checkboxes = $('input[type="checkbox"]:checked').each(function() {
+      sides.push($(this).data('side'));
+    });
+
+    sidesDescription = " with " + arrayToSentence(sides);
+  
+    $('#side-question').fadeTo(500, 0, function(){
+      $('#side-question').addClass('hidden');
+      $('#submit-dish').removeClass('hidden');
+    });
+
+    $('#show-dish-name').append(dish.cookingmethod);
+    $('#show-dish-name').append(" ");
+    $('#show-dish-name').append(dish.ingredient); 
+    $('#show-dish-name').append(" in ");
+    $('#show-dish-name').append(dish.sauce);
+    $('#show-dish-name').append(sidesDescription);
+
+  });
+
+
+
+   
 
   $('#save-dish').click(function(event){
     event.preventDefault();

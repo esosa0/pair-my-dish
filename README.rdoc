@@ -30,14 +30,14 @@ Please feel free to use a different markup language if you do not plan to run
 Main ingredient affects: body
 Cooking method affects: body
 Sauce affects: alcohol, tannin, acid, sparkling
-Secondary ingredient: affect aromas
+side: affect aromas
 
 Dish: 
   belongs_to main ingredient
   belongs_to cooking method
   belongs_to sauce
 
-  has_many secondary_ingredients
+  has_many sides
   
   sweet:boolean
   spicy:boolean
