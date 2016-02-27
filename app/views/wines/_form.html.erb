@@ -2,7 +2,7 @@
 <%=link_to("View wines", wines_path, class: "btn btn-primary btn-sm") %>
 
 <p><%= form_for @wine do |f| %></p><br>
-<%= render 'shared/error_messages' %>
+<%= render partial: 'shared/error_messages', locals: {thing: @wine} %>
   
   <div class="form-group"><h4><%= f.label :name %>
 
