@@ -40,8 +40,15 @@ $(function() {
   });
 
   function arrayToSentence (arr) {
-    var last = arr.pop();
-    return arr.join(', ') + ' and ' + last;
+    if(arr.length === 0){
+      return " "
+    }
+    else if (arr.length === 1){
+      return " with " + arr.join(',')
+    } else {
+      var last = arr.pop();
+      return " with " + arr.join(', ') + ' and ' + last;
+    }
   } 
 
   $('#side-question-button').click(function(event){
@@ -50,7 +57,7 @@ $(function() {
       sides.push($(this).data('side'));
     });
 
-    sidesDescription = " with " + arrayToSentence(sides);
+    sidesDescription = arrayToSentence(sides);
   
     $('#side-question').fadeTo(500, 0, function(){
       $('#side-question').addClass('hidden');

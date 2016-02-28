@@ -6,12 +6,21 @@ class Dish < ActiveRecord::Base
   has_and_belongs_to_many :sides
 
   def name
+
+    name = "#{cooking_method.name} #{ingredient.name} in #{sauce.name}"
+
     sides_array = []
     sides.each do |side|
       sides_array.push(side.name)
     end
-    sides_sentence = sides_array.to_sentence
-    name = "#{cooking_method.name} #{ingredient.name} in #{sauce.name} with #{sides_sentence}"
-    return name
+    
+    if sides_array.length == 0
+      return name
+
+    else 
+      sides_sentence = " with #{sides_array.to_sentence}"
+      name += "#{sides_sentence}"
+      return name
+    end
   end
 end

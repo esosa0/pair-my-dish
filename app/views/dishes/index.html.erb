@@ -1,5 +1,5 @@
 <div class="box"> 
-  <h1>You saved <%= @dish.name  %>.</h1>
+  <h1>You saved <%= @dish.name  %></h1>
   <p><a href="#" id="view-all-dishes"> View all dishes </a></p>
 
   <div class="hidden" id="dishes-index">
@@ -10,7 +10,7 @@
       </tr> 
         <% @dishes.each do |dish| %>
       <tr>
-        <td><%= dish.name %></td>
+        <td><%= (dish.name).capitalize %></td>
         <td> <%= link_to("Delete", dish_path(dish.id), method: :delete, data: {confirm: 'Are you sure you want to delete this dish?'}) %> </td>
         <% end %>
 
