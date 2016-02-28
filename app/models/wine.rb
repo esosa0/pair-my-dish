@@ -34,15 +34,23 @@ class Wine < ActiveRecord::Base
     "Sweet"=> 3,
   }
 
-
-
-
-
   has_and_belongs_to_many :aromas
   validates :name, presence: true
   validates :body, presence: true  
   validates :alcohol, presence: true
   validates :tannin, presence: true 
   validates :acid, presence: true
-  validates :sweetness, presence: true     
+  validates :sweetness, presence: true   
+
+  def self.pair(dish)
+    body_min = dish.ingredient.body_min
+    body_max = dish.ingredient.body_max
+    wine_selection = Wine.where(body: (body_min..body_max))
+    if dish.cooking_method.dry
+      return wine_selection.where(body: (body_min + 1 ..body_max))
+    else
+      return wine_selection.where(body: (body_min..body_max - 1))
+    end
+  end
+
 end

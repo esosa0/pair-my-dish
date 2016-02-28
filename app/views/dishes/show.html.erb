@@ -1,0 +1,8 @@
+<div class="box">  
+  <h3><%= (@dish.name).capitalize %></h3>
+  <% @wines.each do |wine| %>
+    <ul>
+      <li><%= wine.name %></li>
+    </ul>
+  <%end%>
+</div>
