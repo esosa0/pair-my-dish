@@ -46,11 +46,26 @@ class Wine < ActiveRecord::Base
     body_min = dish.ingredient.body_min
     body_max = dish.ingredient.body_max
     wine_selection = Wine.where(body: (body_min..body_max))
+
     if dish.cooking_method.dry
-      return wine_selection.where(body: (body_min + 1 ..body_max))
+      wine_selection_2 = wine_selection.where(body: (body_min + 1 ..body_max))
     else
-      return wine_selection.where(body: (body_min..body_max - 1))
+      wine_selection_2 = wine_selection.where(body: (body_min..body_max - 1))
     end
+
+    alcohol_min = dish.sauce.alcohol_min
+    alcohol_max = dish.sauce.alcohol_max
+    tannin_min = dish.sauce.tannin_min
+    tannin_max = dish.sauce.tannin_max
+    acid_min = dish.sauce.acid_min
+    acid_max = dish.sauce.acid_max
+
+    wine_selection_3 = wine_selection_2.where(alcohol: (alcohol_min..alcohol_max) && (tannin_min..tannin_max) && (acid_min..acid_max))
+    return wine_selection_3
+
+
+
+
   end
 
 end
