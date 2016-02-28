@@ -19,23 +19,25 @@
     <th> Id </th>
     <th> Modify </th>
   </tr> 
-    <% @wines.each do |wine| %>
-  <tr>
-    <td><%= wine.name %></td>
-    <td><%= wine.body %></td>
-    <td><%= wine.alcohol %></td>
-    <td><%= wine.tannin %></td>
-    <td><%= wine.acid %></td>
-    <td><%= wine.sweetness %></td>
-    <td><%= wine.sparkling %></td>
-    <td><% wine.aromas.each do |aroma| %>
-        <%= aroma.name %>
-        <% end %>
-    </td>
-    <td><%= wine.id %></td>
-    <td> <%= link_to("Edit", edit_wine_path(wine.id)) %> <%= link_to("Delete", wine_path(wine.id), method: :delete, data: {confirm: 'Are you sure you want to delete this wine?'}) %></td>
-
-  </tr>
+  <% @wines.each do |wine| %>
+    <tr>
+      <td><%= wine.name %></td>
+      <td><%= wine.body %></td>
+      <td><%= wine.alcohol %></td>
+      <td><%= wine.tannin %></td>
+      <td><%= wine.acid %></td>
+      <td><%= wine.sweetness %></td>
+      <td><%= wine.sparkling %></td>
+      <td><% wine.aromas.each do |aroma| %>
+          <%= aroma.name %>
+          <% end %>
+      </td>
+      <td><%= wine.id %></td>
+      <td>
+          <%= link_to("Edit", edit_wine_path(wine.id)) %> 
+          <%= link_to("Delete", wine_path(wine.id), method: :delete, data: {confirm: 'Are you sure you want to delete this wine?'}) %>
+      </td>
+    </tr>
   <% end %>
 </table>
 </div>

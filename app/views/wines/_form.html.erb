@@ -4,77 +4,89 @@
 <p><%= form_for @wine do |f| %></p><br>
 <%= render partial: 'shared/error_messages', locals: {thing: @wine} %>
   
-  <div class="form-group"><h4><%= f.label :name %>
-
-  <%= f.text_field :name, class: "form-control", placeholder: "Chardonnay" %></h4></div> <br>
-
-  <p><h4><%= f.label :body %></h4></p>
-
-  <p><%= f.radio_button :body, 1 %>
-  <%= label_tag(:body, "Light-bodied white") %>
-  <%= f.radio_button :body, 2 %>
-  <%= label_tag(:body, "Medium-bodied white") %>
-  <%= f.radio_button :body, 3 %>
-  <%= label_tag(:body, "Full-bodied white") %>
-  <%= f.radio_button :body, 4 %>
-  <%= label_tag(:body, "Rose") %></p>
-  <%= f.radio_button :body, 5 %>
-  <%= label_tag(:body, "Light-bodied red") %>
-  <%= f.radio_button :body, 6 %>
-  <%= label_tag(:body, "Medium-bodied red") %>
-  <%= f.radio_button :body, 7 %>
-  <%= label_tag(:body, "Full-bodied red") %></p><br>
-
-  <p><h4><%= f.label :alcohol %></h4></p>
-
-  <p><%= f.radio_button :alcohol, 1 %>
-  <%= label_tag(:alcohol, "Low-alcohol (under 12.5%)") %>
-  <%= f.radio_button :alcohol, 2 %>
-  <%= label_tag(:alcohol, "Medium-alcohol (12.5% - 13.5%)") %>
-  <%= f.radio_button :alcohol, 3 %>
-  <%= label_tag(:alcohol, "High-alcohol (13.5% - 15%)") %>
-  </p><br>
-
-  <p><h4><%= f.label :tannin %></h4></p>
-
-  <p><%= f.radio_button :tannin, 0 %>
-  <%= label_tag(:tannin, "No tannin (check for white wines)") %>
-  <%= f.radio_button :tannin, 1 %>
-  <%= label_tag(:tannin, "Low-tannin") %>
-  <%= f.radio_button :tannin, 2 %>
-  <%= label_tag(:tannin, "Medium-tannin") %>
-  <%= f.radio_button :tannin, 3 %>
-  <%= label_tag(:tannin, "High-tannin") %></p><br>
-
-  <p><h4><%= f.label :acid %></h4></p>
-
-  <p><%= f.radio_button :acid, 1 %>
-  <%= label_tag(:acid, "Low-acid") %>
-  <%= f.radio_button :acid, 2 %>
-  <%= label_tag(:acid, "Medium-acid") %>
-  <%= f.radio_button :acid, 3 %>
-  <%= label_tag(:acid, "High-acid") %></p><br>
-
-
-  <p><h4><%= f.label :sweetness %> </h4></p>
-
-  <p><%= f.radio_button :sweetness, 1 %>
-  <%= label_tag(:sweetness, "Dry") %>
-  <%= f.radio_button :sweetness, 2 %>
-  <%= label_tag(:sweetness, "Semi-sweet") %>
-  <%= f.radio_button :sweetness, 3 %>
-  <%= label_tag(:sweetness, "Sweet") %></p><br> 
-
-  <p><h4><%= f.label :sparkling %></h4></p>
-  <p><%= f.check_box :sparkling %>
-  <%= label_tag(:sparkling, "This is a sparkling wine") %></p><br>
-
-  <p><h4>Aromas</h4> (Check all that apply)</p>
-
-  <div class="field">
-    <%= f.collection_check_boxes(:aroma_ids, Aroma.all, :id, :name) %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Chardonnay" %>
   </div>
 
+  <h4>Body</h4>
+  
+  <% Wine::BODY_TYPES.each do |body_type, value| %>
+    <div class="radio">
+      <%= f.label :body, value: value do %>
+        <%= f.radio_button :body, value %>
+        <%= body_type %>
+      <% end %>
+    </div>
+  <% end %>
 
-  <p> <%= f.submit 'Save' %> </p>
+  <h4>Alcohol</h4>
+
+  <% Wine::ALCOHOL_LEVELS.each do |alcohol_level, value| %>
+    <div class="radio">
+      <%= f.label :alcohol, value: value do %>
+        <%= f.radio_button :alcohol, value %>
+        <%= alcohol_level %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h4>Tannin</h4>
+
+  <% Wine::TANNIN_LEVELS.each do |tannin_level, value| %>
+    <div class="radio">
+      <%= f.label :tannin, value: value do %>
+        <%= f.radio_button :tannin, value %>
+        <%= tannin_level %>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <h4>Acid</h4>
+
+  <% Wine::ACID_LEVELS.each do |acid_level, value| %>
+    <div class="radio">
+      <%= f.label :acid, value: value do %>
+        <%= f.radio_button :acid, value %>
+        <%= acid_level %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <h4>Sweetness</h4>
+
+  <% Wine::SWEETNESS_LEVELS.each do |sweetness_level, value| %>
+    <div class="radio">
+      <%= f.label :sweetness, value: value do %>
+        <%= f.radio_button :sweetness, value %>
+        <%= sweetness_level %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h4>Sparkling</h4>
+  <div class="checkbox">
+    <%= f.label :sparkling do %>
+      <%= f.check_box :sparkling %>
+      This is a sparkling wine
+    <% end %>
+  </div>
+  
+  
+
+  <h4>Aromas <small>(Check all that apply)</small></h4> 
+
+  
+  <%= f.collection_check_boxes(:aroma_ids, Aroma.order(:name), :id, :name) do |aroma| %>
+    <div class="checkbox">
+      <%= aroma.label { aroma.check_box + aroma.text.titleize  } %>
+    </div>
+  <% end %>
+  
+
+
+
+
+  <%= f.submit 'Save', class: "btn btn-primary btn-sm" %>
 <% end %>

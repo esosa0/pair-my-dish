@@ -19,27 +19,27 @@ class WinesController < ApplicationController
 
   def index
     @wines = Wine.all 
-    authorize! :read, @wines
+    authorize! :read, Wine
   end
 
   def edit
-    @wines = Wine.all
-    @wine = @wines.find params[:id]
+    @wine = Wine.find params[:id]
+    authorize! :update, @wine
   end
 
   def update
-    @wines = Wine.all
-    @wine = @wines.find params[:id]
+    @wine = Wine.find params[:id]
+    authorize! :update, @wine
     if @wine.update_attributes wine_params
       redirect_to wines_path
     else
-      render 'new'
+      render 'edit'
     end
   end
 
   def destroy
-    @wines = Wine.all
-    @wine = @wines.find params[:id]
+    @wine = Wine.find params[:id]
+    authorize! :destroy, @wine
     @wine.destroy
     flash[:alert] = "Entry has been deleted"
     redirect_to wines_path

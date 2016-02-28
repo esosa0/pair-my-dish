@@ -1,12 +1,7 @@
 class DishesController < ApplicationController
   def new
     @dish = Dish.new 
-    @ingredients = Ingredient.all
-    @cooking_methods = CookingMethod.all
-    @sauces = Sauce.all
-    @sides = Side.all
     @user = User.new 
-
   end
 
   def create
@@ -17,10 +12,6 @@ class DishesController < ApplicationController
     else
       flash[:danger] = "Dish was not saved"
       @user = current_user 
-      @ingredients = Ingredient.all
-      @cooking_methods = CookingMethod.all 
-      @sauces = Sauce.all
-      @sides = Side.all
       render "new"
     end
   end
@@ -31,8 +22,7 @@ class DishesController < ApplicationController
   end
 
   def destroy
-    @dishes = Dish.all
-    @dish = @dishes.find params[:id]
+    @dish = Dish.find params[:id]
     @dish.destroy
     flash[:alert] = "Dish has been deleted"
     redirect_to dishes_path

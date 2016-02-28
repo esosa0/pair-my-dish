@@ -1,12 +1,13 @@
 class SaucesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @sauces = Sauce.all
+    authorize! :read, Sauce
   end
   def destroy
-    @sauces = Sauce.all
-    @sauce = @sauces.find params[:id]
+    @sauce = Sauce.find params[:id]
+    authorize! :destroy, @sauce
     @sauce.destroy
-    flash[:alert] = "Sauce has been deleted"
-    redirect_to sauces_path
+    redirect_to sauces_path, alert: "Sauce has been deleted"
   end
 end
