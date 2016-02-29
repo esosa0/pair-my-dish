@@ -1,0 +1,32 @@
+<div class="box">
+
+<p><h1>Sides List</h1>
+
+<%= link_to("Create new side", new_side_path, class: "btn btn-primary btn-sm") %> </p>
+
+
+
+<table class="table table-striped">
+  <tr> 
+    <th> Name </th>
+    <th> Aromas </th>
+    <th> Id </th>
+    <th> Modify </th>
+  </tr> 
+  <% @sides.each do |side| %>
+    <tr>
+      <td><%= side.name %></td>
+      <td><% side.aromas.each do |aroma| %>
+          <%= aroma.name %>
+          <% end %>
+      </td>
+      <td><%= side.id %></td>
+      <td>
+          <%= link_to("Edit", edit_side_path(side.id)) %> 
+          <%= link_to("Delete", side_path(side.id), method: :delete, data: {confirm: 'Are you sure you want to delete this side?'}) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+

@@ -1,0 +1,20 @@
+<%=link_to("View sides", sides_path, class: "btn btn-primary btn-sm") %>
+
+<p><%= form_for @side do |f| %></p><br>
+  <%= render partial: 'shared/error_messages', locals: {thing: @side} %>  
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div> 
+
+<h4> Aromas <small>check all that apply</small></h4>
+
+  <%= f.collection_check_boxes(:aroma_ids, Aroma.order(:name), :id, :name) do |aroma| %>
+    <div class="checkbox">
+      <%= aroma.label { aroma.check_box + aroma.text.titleize  } %>
+    </div>
+  <% end %>
+
+  <%= f.submit 'Save', class: "btn btn-primary btn-sm" %>
+<% end %>
