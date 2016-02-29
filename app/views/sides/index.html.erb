@@ -15,9 +15,9 @@
   </tr> 
   <% @sides.each do |side| %>
     <tr>
-      <td><%= side.name %></td>
+      <td><%= (side.name).capitalize %></td>
       <td><% side.aromas.each do |aroma| %>
-          <%= aroma.name %>
+          <%= (aroma.name).capitalize %>
           <% end %>
       </td>
       <td><%= side.id %></td>
