@@ -59,12 +59,42 @@
 
     <div class="hidden" id="side-question"> 
       <div class="col-md-8">
-        <h1 class="home-title">Are you using any of these ingredients?</h1>
-        <%= f.collection_check_boxes(:side_ids, Side.all, :id, :name) do |side| %>
+        <h1 class="home-title">Are you using any of these vegetables?</h1>
+        <%= f.collection_check_boxes(:side_ids, (Side.where(kind: ('vegetables'))).order('name ASC'), :id, :name) do |side| %>
+          <%= side.label { side.check_box(data: { side: side.text }) + side.text  } %>
+        <% end %>
+      </div>
+
+    
+      <div class="col-md-8">
+        <h1 class="home-title"> ...these fruits?</h1>
+        <%= f.collection_check_boxes(:side_ids, (Side.where(kind: ('fruits'))).order('name ASC'), :id, :name) do |side| %>
+          <%= side.label { side.check_box(data: { side: side.text }) + side.text  } %>
+        <% end %>
+      </div>
+
+      <div class="col-md-8">
+        <h1 class="home-title"> ...these herbs?</h1>
+        <%= f.collection_check_boxes(:side_ids, (Side.where(kind: ('herbs'))).order('name ASC'), :id, :name) do |side| %>
+          <%= side.label { side.check_box(data: { side: side.text }) + side.text  } %>
+        <% end %>
+      </div>
+
+      <div class="col-md-8">
+        <h1 class="home-title"> ...these spices?</h1>
+        <%= f.collection_check_boxes(:side_ids, (Side.where(kind: ('spices'))).order('name ASC'), :id, :name) do |side| %>
+          <%= side.label { side.check_box(data: { side: side.text }) + side.text  } %>
+        <% end %>
+      </div>
+
+      <div class="col-md-8">
+        <h1 class="home-title"> ...or these yummy things?</h1>
+        <%= f.collection_check_boxes(:side_ids, (Side.where(kind: ('others'))).order('name ASC'), :id, :name) do |side| %>
           <%= side.label { side.check_box(data: { side: side.text }) + side.text  } %>
         <% end %>
         <p><a href="#" class="btn btn-primary btn-lg" id="side-question-button">Done</a></p>
       </div>
+
     </div>
 
 
