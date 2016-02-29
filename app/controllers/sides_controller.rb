@@ -49,7 +49,7 @@ class SidesController < ApplicationController
   private
 
   def side_params
-    params.require(:side).permit(:name, :aroma_ids => [])
+    params.require(:side).permit(:name, :kind, :aroma_ids => [])
   end
 
 end

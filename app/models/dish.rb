@@ -3,6 +3,7 @@ class Dish < ActiveRecord::Base
   belongs_to :cooking_method, required: true
   belongs_to :user #, required: true
   belongs_to :sauce, required: true
+  has_many :aromas, through: :sides
   has_and_belongs_to_many :sides
 
   def name
