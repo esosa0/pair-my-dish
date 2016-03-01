@@ -79,12 +79,15 @@ $(function() {
 
   $('#save-dish').click(function(event){
     event.preventDefault();
-    $('#sign-up-modal').modal('show');
+    if (window.loggedIn === false){
+      $('#sign-up-modal').modal('show');
+    } else {
+      $("#new_dish").submit();
+    }
   });
 
   $("#new_user").on("ajax:success", function (e, data, status, xhr) {
     $("#new_dish").submit();
-
   });
 
 

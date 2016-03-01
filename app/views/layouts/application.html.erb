@@ -4,6 +4,9 @@
 <head>
   <title>Pair My Dish</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script>
+    window.loggedIn = <%= current_user ? "true" : "false" %>;
+  </script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
