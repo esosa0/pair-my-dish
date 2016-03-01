@@ -45,7 +45,7 @@ class Wine < ActiveRecord::Base
   def self.pair(dish)
     ingredient = dish.ingredient
     sauce = dish.sauce
-
+    
     if dish.cooking_method.dry
       wine_selection = Wine.where(
         body: (ingredient.body_min + 1 ..ingredient.body_max)
@@ -62,9 +62,11 @@ class Wine < ActiveRecord::Base
       acid: (sauce.acid_min..sauce.acid_max)
     )
 
-    if dish.aromas.count > 0
+    aromas = Aroma.where(aromas_sides: { side_id: dish.side_ids }).joins(:sides).uniq
+
+    if aromas.count > 0
       wine_selection = wine_selection_2.joins(:aromas).where(
-        aromas_wines: { aroma_id: dish.aromas }
+        aromas_wines: { aroma_id: aromas }
       ).uniq
       if wine_selection.count == 0
         return wine_selection_2
@@ -72,7 +74,6 @@ class Wine < ActiveRecord::Base
     end
 
     return wine_selection
-
   end
 
 end
