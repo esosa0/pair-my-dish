@@ -92,8 +92,9 @@ $(function() {
     });
 
     function handleResponse(response) {
-      console.log(response);
-      
+      for(var i = 0; i <response.length; i++){
+      $('#show-wine-name').append('<li>' + response[i].name + '</li>');
+      }
     }
   
   });
