@@ -96,6 +96,18 @@ $(function() {
     $('#dishes-index').removeClass('hidden');
   });
 
+  $('#view-all-pairings').click(function(event){
+    event.preventDefault();
+    $('#all-pairings').removeClass('hidden');
+    $('#our-pairing').addClass('hidden')
+  });
+
+  $('#let-us-choose').click(function(event){
+    event.preventDefault();
+    $('#our-pairing').removeClass('hidden');
+    $('#all-pairings').addClass('hidden')
+  });  
+
 });
 
 
