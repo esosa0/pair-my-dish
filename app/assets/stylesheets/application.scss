@@ -34,10 +34,15 @@ body {
   margin: 1%;
   padding: 2%;
   border-radius: 10px;
-
 }
 
+.radio label.radio-style, .checkbox label.radio-style {
+  padding-left: 2%;
+}
 
+.radio-style input {
+  display: none;
+}
 
 .list-inline {
   display: inline-block;
