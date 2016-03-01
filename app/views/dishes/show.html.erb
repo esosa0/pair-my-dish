@@ -16,14 +16,14 @@
   <div class="hidden" id="all-pairings">
     <% @wines.each do |wine| %>
       <ul>
-        <li><%= wine.name %></li>
+        <li><%= (wine.name).titleize %></li>
       </ul>
     <%end%>
   </div>
 
   <div class="hidden" id="our-pairing">
    <% selection = Random.rand(@wines.length)%>
-   <%= @wines[selection].name %>
+   <%= (@wines[selection].name).titleize %>
   </div>
 
   
