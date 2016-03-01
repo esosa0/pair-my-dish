@@ -71,6 +71,27 @@ $(function() {
     $('#show-dish-name').append(dish.sauce);
     $('#show-dish-name').append(sidesDescription);
 
+    // function handleResponse(response) {
+    //   // build list of wines from response
+    // }
+  //   build url with params before ajax call
+  //   var url = '/pairmydish?main_ingredient=chickent&sauce=tomato_sauce'
+  //   $.ajax({
+  //     method: 'get',
+  //     url: '/pairmydish?',
+  //     success: handleResponse,
+  //     error: function (error) {
+  //       console.log('some error happenned');
+  //     }
+  //   })
+
+  //   ajax call to get parameters pass parameters of dish 
+  //   create route /pairmydish
+  //   calls dish controller pair method 
+  //   create a dish but dont save wine.pair 
+  //   return json with array of wines
+  //   on ajax succes build html from array of wines
+
   });
 
 
