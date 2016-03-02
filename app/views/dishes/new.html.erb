@@ -77,7 +77,7 @@
 
         <h1 class="home-title">Does your dish have any of these flavors?</h1>
         <%= f.collection_check_boxes(:side_ids, Side.all.order('name ASC'), :id, :name) do |side| %>
-          <%= side.label(class: "radio-style checkbox-style") { side.check_box(data: { side: side.text }) + side.text  } %>
+          <%= side.label(class: "radio-style checkbox-style") { side.check_box(data: { side: side.text }) + (side.text).titleize  } %>
         <% end %>
         <br>
         <a href="#" class="btn btn-primary btn-lg" id="side-question-button">Done</a>
