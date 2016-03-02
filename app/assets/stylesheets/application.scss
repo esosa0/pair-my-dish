@@ -96,24 +96,48 @@ body {
   background: url('wine_bottle.jpg') no-repeat center;
   background-size: contain;
   margin: 2%;
-  height: 300px;
-  width: 120px;
+  height: 400px;
+  width: 200px;
   .name{
     position: relative;
-    top: 140px; 
+    top: 190px; 
     font-family: 'Courgette';
     color: #FF4040;
-    font-size: larger;
+    font-size: 20px;
   }
 }
 
 #show-wine-name {
   list-style-type: none;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+  padding-left: 0px;
 }
 
 #show-dish-name {
   font-family: 'Courgette';
   color: #FF4040;
+}
+
+#save-dish {
+  color: #FF4040;
+  font-family: 'Courgette';
+  font-size: 25px;
+  background-color: #FFF;
+  border-color: #708090;
+}
+
+#side-question-button {
+  color: #FF4040;
+  font-family: 'Courgette';
+  font-size: 25px;
+  background-color: #FFF;
+  border-color: #708090;
+}
+
+#save-dish:hover, #side-question-button:hover {
+  background-color: #DCDCDC;
 }
 
 .box {
@@ -123,9 +147,13 @@ body {
   opacity: 0.90
 }
 
+.brand-title {
+  color: #FF4040;
+  font-family: 'Courgette';
+}
+
 .home-title {
   font-family: 'Montserrat', sans-serif;
-  color: #172727;
   margin-bottom: 5%;
 }
 

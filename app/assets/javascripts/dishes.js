@@ -102,7 +102,7 @@ $(function() {
         $('#number-of-wines').append(response.length + " wines")
       }
       for(var i = 0; i <response.length; i++){
-      $('#show-wine-name').append('<li class="list-inline"><span class="name">' + response[i].name + '</span></li>');
+      $('#show-wine-name').append('<li class="list-inline"><span class="name">' + (response[i].name).titleize() + '</span></li>');
       }
     }
   

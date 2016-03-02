@@ -22,7 +22,9 @@
 
       <div id="ingredient-question"> 
         <div class="col-md-8" >
-          <h1 class="home-title"> What is your main ingredient?</h1>
+          <h1 class="brand-title">Pair My Dish</h1>
+
+          <h2 class="home-title"> What are you cooking?</h2>
           <% Ingredient.all.each do |ingredient| %>
             <div class="radio-inline">
               <%= f.label :ingredient_id, value: ingredient.id, class: "radio-style" do %>
@@ -39,7 +41,7 @@
     
       <div class="hidden" id="cooking-method-question"> 
         <div class="col-md-8">
-          <h1 class="home-title"> How are you cooking it?</h1>
+          <h2 class="home-title"> How are you cooking it?</h2>
           <% CookingMethod.all.each do |cooking_method| %>
             <div class="radio-inline">
               <%= f.label :cooking_method_id, value: cooking_method.id, class: "radio-style" do %>
@@ -55,7 +57,7 @@
 
       <div class="hidden" id="sauce-question"> 
         <div class="col-md-8">
-          <h1 class="home-title"> What kind of sauce are you adding?</h1> 
+          <h2 class="home-title"> What kind of sauce are you adding?</h2> 
           <% Sauce.all.each do |sauce| %>
             <div class="radio-inline">
               <%= f.label :sauce_id, value: sauce.id, class: "radio-style sauce-style" do %>
@@ -75,12 +77,12 @@
     <div class="hidden" id="side-question"> 
       <div class="col-md-8">
 
-        <h1 class="home-title">Does your dish have any of these flavors?</h1>
+        <h2 class="home-title">Does your dish have any of these flavors?</h2>
         <%= f.collection_check_boxes(:side_ids, Side.all.order('name ASC'), :id, :name) do |side| %>
           <%= side.label(class: "radio-style checkbox-style") { side.check_box(data: { side: side.text }) + (side.text).titleize  } %>
         <% end %>
         <br>
-        <a href="#" class="btn btn-default btn-lg" id="side-question-button">Done</a>
+        <a href="#" class="btn btn-default btn-lg" id="side-question-button">Pair my dish</a>
 
       </div>
 
