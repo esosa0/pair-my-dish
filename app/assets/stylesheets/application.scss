@@ -26,7 +26,57 @@ body {
   text-align: center;
 }
 
+.btn {
+  margin: 5%;
+}
 
+.radio-style {
+  background-color: #009999;
+  color: rgba(255, 255, 255, 1);
+  font-size: larger;
+  letter-spacing: 1px;
+  margin: 1%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.sauce-style {
+  padding: 5px;
+  font-size: small;
+
+}
+
+
+.radio-inline {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+
+
+
+.radio label.radio-style, .checkbox label.radio-style {
+  padding-left: 2%;
+}
+
+.radio-style input {
+  display: none;
+}
+
+.radio-style:hover {
+  background: #86B32D;
+  cursor: pointer;
+  cursor: hand;
+} 
+
+.active:hover {
+  background-color: #679B00;
+  
+}
+
+.active {
+  background-color: #679B00;
+}
 
 .list-inline {
   display: inline-block;
