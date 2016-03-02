@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Courgette:400,700);
 
 html { 
   background: url('food-drink-kitchen-cutting-board.jpg') no-repeat center center fixed; 
@@ -14,6 +15,11 @@ html {
 body {
   padding-top: 100px;
   background-color: transparent;
+}
+
+.navbar-default {
+  background-color: #172727;
+  
 }
 
 .col-md-4 {
@@ -86,6 +92,28 @@ body {
 
 .list-inline {
   display: inline-block;
+  padding: 20px;
+  background: url('wine_bottle.jpg') no-repeat center;
+  background-size: contain;
+  margin: 2%;
+  height: 300px;
+  width: 120px;
+  .name{
+    position: relative;
+    top: 140px; 
+    font-family: 'Courgette';
+    color: #FF4040;
+    font-size: larger;
+  }
+}
+
+#show-wine-name {
+  list-style-type: none;
+}
+
+#show-dish-name {
+  font-family: 'Courgette';
+  color: #FF4040;
 }
 
 .box {
@@ -97,6 +125,7 @@ body {
 
 .home-title {
   font-family: 'Montserrat', sans-serif;
+  color: #172727;
   margin-bottom: 5%;
 }
 

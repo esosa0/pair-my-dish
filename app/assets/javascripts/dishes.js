@@ -1,5 +1,9 @@
 $(function() {
 
+  String.prototype.titleize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  }
+  
   var dish = {};
 
   $('.ingredient-question-button').click(function(event){   
@@ -10,8 +14,6 @@ $(function() {
 
   var ingredient = $(event.currentTarget).data('ingredient');
   dish.ingredient = ingredient;
-  
-
 
   });
 
@@ -22,8 +24,7 @@ $(function() {
     });
   
     var cookingmethod = $(event.currentTarget).data('cooking-method');
-    dish.cookingmethod = cookingmethod
-    
+    dish.cookingmethod = (cookingmethod).titleize()
 
   });
 
@@ -53,7 +54,6 @@ $(function() {
   $('.radio-style').change(function(){
     $(this).toggleClass('active');
   });
-
 
 
   $('#side-question-button').click(function(event){
@@ -98,8 +98,11 @@ $(function() {
     });
 
     function handleResponse(response) {
+      if(response.length > 1) {
+        $('#number-of-wines').append(response.length + " wines")
+      }
       for(var i = 0; i <response.length; i++){
-      $('#show-wine-name').append('<li>' + response[i].name + '</li>');
+      $('#show-wine-name').append('<li class="list-inline"><span class="name">' + response[i].name + '</span></li>');
       }
     }
   

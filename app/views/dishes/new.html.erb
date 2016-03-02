@@ -80,7 +80,7 @@
           <%= side.label(class: "radio-style checkbox-style") { side.check_box(data: { side: side.text }) + (side.text).titleize  } %>
         <% end %>
         <br>
-        <a href="#" class="btn btn-primary btn-lg" id="side-question-button">Done</a>
+        <a href="#" class="btn btn-default btn-lg" id="side-question-button">Done</a>
 
       </div>
 
@@ -91,12 +91,14 @@
 
       <div class="hidden" id="submit-dish">
         <div class="col-md-8">
-          <h1 class="home-title" id="show-dish-name">Your dish is </h1>
-          <h3 class="home-title">Your dish pairs well with
+          <!-- <h3 class="home-title">Your dish is </h3> -->
+          <h2 id="show-dish-name"></h2>
+          <h4 class="home-title" id="number-of-wines">...pairs well with </h4> 
+          
           <ul id="show-wine-name">
           </ul>
-          </h3>
-          <button class="btn btn-primary btn-lg" id="save-dish">Save my dish</button>
+          
+          <button class="btn btn-default btn-lg" id="save-dish">Save my dish</button>
         </div>
       </div>
 
