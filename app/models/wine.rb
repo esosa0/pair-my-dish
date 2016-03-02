@@ -56,16 +56,19 @@ class Wine < ActiveRecord::Base
       )
     end
 
-    wine_selection = wine_selection.where(
+    wine_selection_2 = wine_selection.where(
       alcohol: (sauce.alcohol_min..sauce.alcohol_max),
       tannin: (sauce.tannin_min..sauce.tannin_max),
       acid: (sauce.acid_min..sauce.acid_max)
     )
 
     if dish.aromas.count > 0
-      wine_selection = wine_selection.joins(:aromas).where(
+      wine_selection = wine_selection_2.joins(:aromas).where(
         aromas_wines: { aroma_id: dish.aromas }
       ).uniq
+      if wine_selection.count == 0
+        return wine_selection_2
+      end
     end
 
     return wine_selection
