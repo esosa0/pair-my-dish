@@ -26,10 +26,11 @@ body {
   text-align: center;
 }
 
+
 .radio-style {
   background-color: #009999;
-  opacity: 0.80;
-  color: #F3F3F3;
+  color: rgba(255, 255, 255, 1);
+  font-size: larger;
   letter-spacing: 1px;
   margin: 1%;
   padding: 2%;
@@ -42,6 +43,21 @@ body {
 
 .radio-style input {
   display: none;
+}
+
+.radio-style:hover {
+  background: #FF7373;
+  cursor: pointer;
+  cursor: hand;
+} 
+
+.active:hover {
+  background-color: #FF7373;
+  
+}
+
+.active {
+  background-color: #FF7373;
 }
 
 .list-inline {

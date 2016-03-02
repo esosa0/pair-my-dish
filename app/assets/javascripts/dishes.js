@@ -51,6 +51,12 @@ $(function() {
     }
   } 
 
+  $('.radio-style').change(function(){
+    $(this).toggleClass('active');
+  });
+
+
+
   $('#side-question-button').click(function(event){
     var sides = [];
     var checkboxes = $('input[type="checkbox"]:checked').each(function() {
