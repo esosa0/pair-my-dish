@@ -7,7 +7,7 @@ class Dish < ActiveRecord::Base
   has_and_belongs_to_many :sides
 
   def name
-
+    
     name = "#{cooking_method.name} #{ingredient.name} in #{sauce.name}"
 
     sides_array = []

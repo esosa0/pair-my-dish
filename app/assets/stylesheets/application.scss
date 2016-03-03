@@ -33,7 +33,8 @@ body {
 }
 
 .btn {
-  margin: 5%;
+  margin-bottom: 5%;
+  margin-top: 5%
 }
 
 .radio-style {
@@ -98,12 +99,22 @@ body {
   margin: 2%;
   height: 400px;
   width: 200px;
+
   .name{
     position: relative;
     top: 190px; 
     font-family: 'Courgette';
     color: #FF4040;
     font-size: 20px;
+
+/*
+    display: flex;
+    margin-left: 32px;
+    text-align: center;
+    white-space: normal;
+    width: 96px;
+    vertical-align: middle;
+*/
   }
 }
 
