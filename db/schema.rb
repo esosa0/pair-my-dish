@@ -14,115 +14,115 @@
 ActiveRecord::Schema.define(version: 20160229120506) do
 
   create_table "aromas", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "kind"
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "kind",       limit: 255
   end
 
   create_table "aromas_sides", id: false, force: :cascade do |t|
-    t.integer "aroma_id"
-    t.integer "side_id"
+    t.integer "aroma_id", limit: 4
+    t.integer "side_id",  limit: 4
   end
 
-  add_index "aromas_sides", ["aroma_id"], name: "index_aromas_sides_on_aroma_id"
-  add_index "aromas_sides", ["side_id"], name: "index_aromas_sides_on_side_id"
+  add_index "aromas_sides", ["aroma_id"], name: "index_aromas_sides_on_aroma_id", using: :btree
+  add_index "aromas_sides", ["side_id"], name: "index_aromas_sides_on_side_id", using: :btree
 
   create_table "aromas_wines", id: false, force: :cascade do |t|
-    t.integer "aroma_id"
-    t.integer "wine_id"
+    t.integer "aroma_id", limit: 4
+    t.integer "wine_id",  limit: 4
   end
 
-  add_index "aromas_wines", ["aroma_id"], name: "index_aromas_wines_on_aroma_id"
-  add_index "aromas_wines", ["wine_id"], name: "index_aromas_wines_on_wine_id"
+  add_index "aromas_wines", ["aroma_id"], name: "index_aromas_wines_on_aroma_id", using: :btree
+  add_index "aromas_wines", ["wine_id"], name: "index_aromas_wines_on_wine_id", using: :btree
 
   create_table "cooking_methods", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       limit: 255
     t.boolean  "dry"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "dishes", force: :cascade do |t|
-    t.integer  "ingredient_id"
-    t.integer  "cooking_method_id"
+    t.integer  "ingredient_id",     limit: 4
+    t.integer  "cooking_method_id", limit: 4
+    t.integer  "user_id",           limit: 4
     t.boolean  "sweet"
     t.boolean  "spicy"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "user_id"
-    t.integer  "sauce_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "sauce_id",          limit: 4
   end
 
-  add_index "dishes", ["cooking_method_id"], name: "index_dishes_on_cooking_method_id"
-  add_index "dishes", ["ingredient_id"], name: "index_dishes_on_ingredient_id"
-  add_index "dishes", ["sauce_id"], name: "index_dishes_on_sauce_id"
-  add_index "dishes", ["user_id"], name: "index_dishes_on_user_id"
+  add_index "dishes", ["cooking_method_id"], name: "index_dishes_on_cooking_method_id", using: :btree
+  add_index "dishes", ["ingredient_id"], name: "index_dishes_on_ingredient_id", using: :btree
+  add_index "dishes", ["sauce_id"], name: "index_dishes_on_sauce_id", using: :btree
+  add_index "dishes", ["user_id"], name: "index_dishes_on_user_id", using: :btree
 
   create_table "dishes_sides", id: false, force: :cascade do |t|
-    t.integer "dish_id"
-    t.integer "side_id"
+    t.integer "dish_id", limit: 4
+    t.integer "side_id", limit: 4
   end
 
-  add_index "dishes_sides", ["dish_id"], name: "index_dishes_sides_on_dish_id"
-  add_index "dishes_sides", ["side_id"], name: "index_dishes_sides_on_side_id"
+  add_index "dishes_sides", ["dish_id"], name: "index_dishes_sides_on_dish_id", using: :btree
+  add_index "dishes_sides", ["side_id"], name: "index_dishes_sides_on_side_id", using: :btree
 
   create_table "ingredients", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "body_min"
-    t.integer  "body_max"
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "body_min",   limit: 4
+    t.integer  "body_max",   limit: 4
   end
 
   create_table "sauces", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "alcohol_min"
-    t.integer  "alcohol_max"
-    t.integer  "tannin_min"
-    t.integer  "tannin_max"
-    t.integer  "acid_min"
-    t.integer  "acid_max"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name",        limit: 255
+    t.integer  "alcohol_min", limit: 4
+    t.integer  "alcohol_max", limit: 4
+    t.integer  "tannin_min",  limit: 4
+    t.integer  "tannin_max",  limit: 4
+    t.integer  "acid_min",    limit: 4
+    t.integer  "acid_max",    limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "sides", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "kind"
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "kind",       limit: 255
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.boolean  "admin"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "wines", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "body"
-    t.integer  "alcohol"
-    t.integer  "tannin"
-    t.integer  "acid"
-    t.integer  "sweetness"
+    t.string   "name",       limit: 255
+    t.integer  "body",       limit: 4
+    t.integer  "alcohol",    limit: 4
+    t.integer  "tannin",     limit: 4
+    t.integer  "acid",       limit: 4
+    t.integer  "sweetness",  limit: 4
     t.boolean  "sparkling"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
