@@ -4,7 +4,7 @@
 @import url(http://fonts.googleapis.com/css?family=Courgette:400,700);
 
 html { 
-  background: url('food-drink-kitchen-cutting-board.jpg') no-repeat center center fixed; 
+  background: image-url('food-drink-kitchen-cutting-board.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -125,16 +125,16 @@ body {
 }
 
 .white {
-  background: url('wine_bottle_white.jpg') no-repeat center;
+  background: image-url('wine_bottle_white.jpg') no-repeat center;
   background-size: contain;
 }
 
 .pink {
-  background: url('wine_bottle_pink.jpg') no-repeat center;
+  background: image-url('wine_bottle_pink.jpg') no-repeat center;
   background-size: contain;
 }
 .red {
-  background: url('wine_bottle_red.jpg') no-repeat center;
+  background: image-url('wine_bottle_red.jpg') no-repeat center;
   background-size: contain;
 }
 
