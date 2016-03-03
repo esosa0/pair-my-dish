@@ -1,5 +1,5 @@
 # Change these
-server '37.139.29.106', roles: [:web, :app, :db], primary: true
+server 'pairmydish.com', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'https://github.com/ESosa0/final-project.git'
 set :application,     'pairmydish'
