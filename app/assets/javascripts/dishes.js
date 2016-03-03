@@ -131,13 +131,13 @@ $(function() {
 
   $('#view-all-pairings').click(function(event){
     event.preventDefault();
-    $('#all-pairings').removeClass('hidden');
+    $('#all-pairings').toggleClass('hidden');
     $('#our-pairing').addClass('hidden')
   });
 
   $('#let-us-choose').click(function(event){
     event.preventDefault();
-    $('#our-pairing').removeClass('hidden');
+    $('#our-pairing').toggleClass('hidden');
     $('#all-pairings').addClass('hidden')
   });  
 

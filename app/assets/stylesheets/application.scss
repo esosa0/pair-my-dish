@@ -11,6 +11,14 @@ html {
   background-size: cover;
 }
 
+#single-wine-list {
+  list-style-type: none;
+  font-family: 'Courgette';
+  color: #FF4040;
+  font-size: 25px;
+  padding-left: 0px;
+
+}
 
 body {
   padding-top: 100px;
@@ -147,7 +155,7 @@ body {
   border-color: #708090;
 }
 
-#save-dish:hover, #side-question-button:hover {
+#save-dish:hover, #side-question-button:hover, #let-us-choose:hover, #view-all-pairings:hover {
   background-color: #DCDCDC;
 }
 
@@ -161,6 +169,7 @@ body {
 .brand-title {
   color: #FF4040;
   font-family: 'Courgette';
+  font-size: 50px;
 }
 
 .home-title {
@@ -171,3 +180,52 @@ body {
 div.hidden { 
   display: none; }
 
+.random-wine {
+  font-family: 'Courgette';
+  color: #FF4040;
+  font-size: 25px;
+}
+
+#logo {
+  font-family: 'Courgette';
+}
+
+#let-us-choose {
+  color: black;
+  font-family: 'Montserrat';
+  background-color: #FFF;
+  border-color: #708090;
+  margin: 10px 0 20px;
+}
+
+#view-all-pairings {
+  color: black;
+  font-family: 'Montserrat';
+  border-color: #708090;
+  margin: 10px 0 20px;
+}
+
+.view-my-dishes {
+  margin-top: 10px;
+}
+
+#all-pairings {
+  font-family: 'Courgette';
+  font-size: 18px;
+}
+
+#lucky-you {
+  margin: 20px 0 30px;
+}
+
+#intro {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.dish-title {
+  color: #FF4040;
+  font-family: 'Courgette';
+}

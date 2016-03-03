@@ -23,8 +23,10 @@
       <div id="ingredient-question"> 
         <div class="col-md-8" >
           <h1 class="brand-title">Pair My Dish</h1>
+          <p id="intro">We choose the perfect wine for your dish using pairing techniques from top sommeliers.</p>
 
           <h2 class="home-title"> What are you cooking?</h2>
+
           <% Ingredient.all.each do |ingredient| %>
             <div class="radio-inline">
               <%= f.label :ingredient_id, value: ingredient.id, class: "radio-style" do %>

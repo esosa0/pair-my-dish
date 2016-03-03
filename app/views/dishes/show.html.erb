@@ -1,30 +1,44 @@
 <div class="box">  
-  <h3><%= (@dish.name).capitalize %></h3>
+  <h2 class="dish-title"><%= (@dish.name).capitalize %></h2>
   <% if @wines.length == 1 %>
+    <h4>...pairs well with</h4>
     <% @wines.each do |wine| %>
-      <ul>
-        <li><%= wine.name %></li>
-      </ul>
-    <%end%>
-  <% elsif @wines.length > 1 %>
-    <p>
-      Your dish pairs well with <strong> <%= @wines.length %> </strong> wine types. Lucky you!
-    </p>
-    <a href="#" id="view-all-pairings">View all pairings</a> or <a href="#" id="let-us-choose"> let us choose </a>
-  <%end%>
-
-  <div class="hidden" id="all-pairings">
-    <% @wines.each do |wine| %>
-      <ul>
+      <ul id="single-wine-list">
         <li><%= (wine.name).titleize %></li>
       </ul>
     <%end%>
+  <% elsif @wines.length > 1 %>
+    <h4 id="lucky-you">
+      Your dish pairs well with <strong> <%= @wines.length %>  wine types.</strong> Lucky you!
+    </h4>
+    <a href="#" class="btn btn-sm" id="view-all-pairings">
+        View all pairings
+    </a> 
+    or 
+    <a href="#" class="btn btn-sm" id="let-us-choose"> 
+      let us choose 
+    </a>
+  <%end%>
+
+  <div class="list-group">
+    <div class="hidden" id="all-pairings">
+      <% @wines.each do |wine| %>
+        
+        <button type="button" class="list-group-item"> <%= (wine.name).titleize %></button>
+        
+      <%end%>
+    </div>
   </div>
 
   <div class="hidden" id="our-pairing">
-   <% selection = Random.rand(@wines.length)%>
-   <%= (@wines[selection].name).titleize %>
+    <h4>Try it with a...</h4>
+    <div class="random-wine"> 
+    <% selection = Random.rand(@wines.length)%>
+    <%= (@wines[selection].name).titleize %>
+    </div>
   </div>
+
+  <%= link_to("View my dishes", dishes_path, class: "btn btn-primary btn-sm view-my-dishes"  ) %> 
 
   
 

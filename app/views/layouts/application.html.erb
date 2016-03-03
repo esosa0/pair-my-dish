@@ -24,8 +24,8 @@
       </button>
       
       <%= link_to(root_path, class: "navbar-brand") do %>
-        <span class="glyphicon glyphicon-glass" aria-hidden="true"></span> 
-        Pair My Dish
+        <span aria-hidden="true"></span> 
+        <span id="logo">Pair My Dish</span>
       <% end %>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
@@ -37,7 +37,9 @@
             <li><%= link_to("Wines", wines_path) %></li>
             <li><%= link_to("Ingredients", ingredients_path) %></li>
             <li><%= link_to("Sides", sides_path) %></li>
+            <li><%= link_to("My Dishes", dishes_path) %></li>
           <% end %>
+          <li><%= link_to("My Dishes", dishes_path) %></li>
           <li><%= link_to("Log out", destroy_user_session_path, method: :delete) %></li>
         <% else %>
           <li><%= link_to("Log in", new_user_session_path) %></li>
