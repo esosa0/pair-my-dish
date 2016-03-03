@@ -102,13 +102,17 @@ $(function() {
         $('#number-of-wines').append(response.length + " wines")
       }
       for(var i = 0; i <response.length; i++){
-      $('#show-wine-name').append('<li class="list-inline"><span class="name">' + (response[i].name).titleize() + '</span></li>');
+        if(response[i].body < 4) {
+
+          $('#show-wine-name').append('<li class="list-inline white"><span class="name">' + (response[i].name).titleize() + '</span></li>');
+        } else if (response[i].body === 4){
+          $('#show-wine-name').append('<li class="list-inline pink"><span class="name">' + (response[i].name).titleize() + '</span></li>');
+        } else {
+          $('#show-wine-name').append('<li class="list-inline red"><span class="name">' + (response[i].name).titleize() + '</span></li>');
+        }       
       }
     }
-  
   });
-
-  
 
   $('#save-dish').click(function(event){
     event.preventDefault();
@@ -140,34 +144,6 @@ $(function() {
     $('#our-pairing').toggleClass('hidden');
     $('#all-pairings').addClass('hidden')
   });  
-
-
-
-  
-  //   build url with params before ajax call
-    // var url = '/pairmydish?main_ingredient=chickent&sauce=tomato_sauce'
-    // $.ajax({
-    //   method: 'get',
-    //   url: '/pairmydish?',
-    //   data: {cookingmethod:dish.cookingmethod};
-    //   success: handleResponse,
-    //   error: function (error) {
-    //     console.log('some error happenned');
-    //   }
-    // });
-
-    // function handleResponse(response) {
-    //   console.log(response)
-    // }
-
-
-  //   ajax call to get parameters pass parameters of dish 
-  //   create route /pairmydish
-  //   calls dish controller pair method 
-  //   create a dish but dont save wine.pair 
-  //   return json with array of wines
-  //   on ajax succes build html from array of wines
-
 
 });
 
