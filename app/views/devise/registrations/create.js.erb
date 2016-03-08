@@ -1,0 +1,5 @@
+<% if resource.persisted? %>
+  $("#new_dish").submit();
+<% else %>
+  $("#new_user .error-messages").html("<%= escape_javascript(devise_error_messages!) %>");
+<% end %>

@@ -1,10 +1,11 @@
 <div class="box">
 
   <h2>Create your account</h2>
-  <h4>It's totally free and we won't send you any spam. Promise!</h4>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), remote: true) do |f| %>
+    <div class="error-messages">
+      <%= devise_error_messages! %>
+    </div>
 
     <div class="field form-group">
       <%= f.label :email %><br />
@@ -32,7 +33,3 @@
   <%= render "devise/shared/links"%>
 
 </div>
-
-
-
-

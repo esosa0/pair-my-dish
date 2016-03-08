@@ -117,16 +117,22 @@ $(function() {
   $('#save-dish').click(function(event){
     event.preventDefault();
     if (window.loggedIn === false){
-      $('#sign-up-modal').modal('show');
+      $.ajax({
+        method: 'get',
+        dataType: 'html',
+        url: '/users/sign_up',
+        success: function(response){
+          $('#sign-up-modal .modal-body').html(response)
+          $('#sign-up-modal').modal('show');
+        },
+        error: function (error) {
+          console.log('some error happenned');
+        }
+      });
     } else {
       $("#new_dish").submit();
     }
   });
-
-  $("#new_user").on("ajax:success", function (e, data, status, xhr) {
-    $("#new_dish").submit();
-  });
-
 
   $('#view-all-dishes').click(function(event){
     event.preventDefault();
