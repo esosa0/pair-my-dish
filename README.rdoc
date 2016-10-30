@@ -1,61 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pair My Dish is a Ruby on Rails app that allows a user to answer a series of questions about a dish they are cooking and receive a customized wine pairing suggestion.
 
-Things you may want to cover:
+* Ruby version 2.3.0
 
-* Ruby version
+* Rails version 4.2.5.1
 
-* System dependencies
+* MySql
 
-* Configuration
+* Known bugs around sign up/sign in. User can only sign up via remote form. If a user tries to sign in via remote form, wine pairing will be lost. 
 
-* Database creation
+The wine pairing method can be found in app/models/wine.rb
 
-* Database initialization
+The wine pairing method works like this:
 
-* How to run the test suite
+Each wine has a range for body, alcohol, tannin, and acid. It also has associated aromas.
 
-* Services (job queues, cache servers, search engines, etc.)
+Each ingredient and cooking method has a range for body. Each sauce has a range for alcohol, tannin, and acid. Each side has associated aromas. 
 
-* Deployment instructions
+The wine pairing method performs a series of hierarchical queries to the database, each time returning an array with fewer and fewer selections. If upon the final selection no wine is returned, the method returns the previous query.  
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-
-Main ingredient affects: body
-Cooking method affects: body
-Sauce affects: alcohol, tannin, acid, sparkling
-side: affect aromas
-
-Dish: 
-  belongs_to main ingredient
-  belongs_to cooking method
-  belongs_to sauce
-
-  has_many sides
-  
-  sweet:boolean
-  spicy:boolean
-
-Main ingredient:
-  name:string
-  body_max:integer
-  body_min: integer
-
-Cooking method:
-  name:string
-  dry:boolean
-
-Sauce: 
-  name:string
-  alcohol_min:integer
-  alcohol_max:integer
-  tannin_min:integer
-  tannin_max:integer
-  acid_min:integer
-  acid_max:integer
+Future versions will take into account the spiciness and sweetness of dishes and whether a wine is sweet or sparkling. 
