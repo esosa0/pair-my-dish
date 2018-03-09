@@ -1,7 +1,10 @@
 class DishesController < ApplicationController
   def new
     @dish = Dish.new 
-    @user = User.new 
+    @user = User.new
+    @initial_state_json = {
+      "ingredients": Ingredient.all.as_json
+    }.to_json.html_safe
   end
 
   def create
