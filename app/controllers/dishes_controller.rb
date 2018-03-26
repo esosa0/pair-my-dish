@@ -3,7 +3,10 @@ class DishesController < ApplicationController
     @dish = Dish.new 
     @user = User.new
     @initial_state_json = {
-      "ingredients": Ingredient.all.as_json
+      "ingredients": Ingredient.all.as_json,
+      "cooking_methods": CookingMethod.all.as_json,
+      "sauces": Sauce.all.as_json,
+      "aromas": Aroma.all.limit(12).as_json,
     }.to_json.html_safe
   end
 
