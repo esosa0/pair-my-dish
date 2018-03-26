@@ -1,11 +1,11 @@
 import React from 'react'
+import Cards from '../containers/Cards'
 
 const App = ({ currentScreen }) => {
-  return (
-    <div>
-      {currentScreen}
-    </div>
-  )
+  if (currentScreen === 'card list'){
+    return <Cards />
+  }
+
 }
 
 export default App
