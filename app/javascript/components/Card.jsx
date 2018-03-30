@@ -1,5 +1,6 @@
 import React from 'react'
 import Line from '../../assets/images/line.svg'
+import classNames from 'classnames'
 
 
 class Card extends React.Component {
@@ -7,8 +8,15 @@ class Card extends React.Component {
     buttonText: "Next"
   }
   state = {
-    currentSelections: []
+    currentSelections: [],
+    selectedChoice: ""
   }
+
+  selectChoice = choice => {
+    console.log(choice)
+    this.setState({selectedChoice: choice})
+  }
+
   render(){
     return (
       <li className="card">
@@ -22,13 +30,17 @@ class Card extends React.Component {
           </h2>
           <div className="choices">
             {this.props.choices.map((choice,index) =>
-              <label className="radio-style">
+              <label 
+                className={classNames("radio-style", {
+                  "active": choice===this.state.selectedChoice
+                })} 
+                onClick={() => this.selectChoice(choice)}>
                 <input type="radio" value={choice} name={`question${this.props.step}`} className="ingredient-question-button" />
                 {choice}
               </label>
             )}
           </div>
-          <button id="side-question-button">
+          <button id="side-question-button" onClick={this.props.onNextClick}>
             {this.props.buttonText}
           </button>
         </div>
