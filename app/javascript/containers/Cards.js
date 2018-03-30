@@ -1,5 +1,22 @@
 import { connect } from 'react-redux'
 import CardsList from '../components/CardsList'
+import React from 'react'
+
+class Cards extends React.Component{
+  state = {currentStep: 1}
+  incrementCurrentStep = () => {
+    this.setState({currentStep: this.state.currentStep+1})
+  }
+  render(){
+    return (
+      <CardsList 
+        questions={this.props.questions}
+        currentStep={this.state.currentStep}
+        goToNextStep={this.incrementCurrentStep}
+      />
+    )
+  }
+}
 
 const mapStateToProps = state => {
   return {
@@ -11,9 +28,8 @@ const mapDispatchToProps = dispatch => {
   return {}
 }
 
-const Cards = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CardsList)
+)(Cards)
 
-export default Cards
