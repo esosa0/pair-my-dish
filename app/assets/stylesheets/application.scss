@@ -151,7 +151,7 @@ body {
   border-color: #708090;
 }
 
-#side-question-button {
+#side-question-button, .next-button {
   color: #FF4040;
   font-family: 'Courgette';
   font-size: 30px;
@@ -159,6 +159,7 @@ body {
   padding: 10px 70px;
   border-radius: 10px;
   border: 1px solid #979797;
+  margin-bottom: 1.5em;
 }
 
 #save-dish:hover, #side-question-button:hover, #let-us-choose:hover, #view-all-pairings:hover {
@@ -269,18 +270,20 @@ div.hidden {
 
 .card-list {
   list-style: none;
+  padding-bottom: 500px;
 }
 
 .question-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 48px;
+  margin-top: 1.5em;
 }
 
 .choices {
   display: grid;
-  grid-template-columns: repeat( auto-fit, 150px );
+  grid-template-columns: repeat(auto-fill, minmax(150px, auto));
   grid-gap: 20px;
-  width: 50%;
+  width: 75%;
   margin-top: 50px;
   margin-bottom: 50px;
 }
