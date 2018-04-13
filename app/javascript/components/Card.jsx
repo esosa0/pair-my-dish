@@ -4,22 +4,15 @@ import classNames from 'classnames'
 
 
 class Card extends React.Component {
-  static defaultProps = {
-    buttonText: "Next"
-  }
-  state = {
-    currentSelections: [],
-    selectedChoice: ""
-  }
 
-  selectChoice = choice => {
-    console.log(choice)
-    this.setState({selectedChoice: choice})
+  getRef = (node) => this.nodeRef = node
+  componentDidMount(){
+    this.nodeRef.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
   }
 
   render(){
     return (
-      <li className="card">
+      <li className="card" ref={this.getRef}>
         <img className="line" src={Line}/>
         <div className="box">
           <div className="question-step">
@@ -29,18 +22,9 @@ class Card extends React.Component {
             {this.props.text}
           </h2>
           <div className="choices">
-            {this.props.choices.map((choice,index) =>
-              <label 
-                className={classNames("radio-style", {
-                  "active": choice===this.state.selectedChoice
-                })} 
-                onClick={() => this.selectChoice(choice)}>
-                <input type="radio" value={choice} name={`question${this.props.step}`} className="ingredient-question-button" />
-                {choice}
-              </label>
-            )}
+            {this.props.children}
           </div>
-          <button id="side-question-button" onClick={this.props.onNextClick}>
+          <button className="next-button" type="button" onClick={this.props.onNextClick}>
             {this.props.buttonText}
           </button>
         </div>
