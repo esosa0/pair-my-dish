@@ -3,7 +3,17 @@ import CardsList from '../components/CardsList'
 import React from 'react'
 
 class Cards extends React.Component{
-  state = {currentStep: 1}
+  state = {
+    currentStep: 1,
+    selections: [],    
+  }
+
+  addToSelections = (selection, index) => {
+    const selections = Object.assign([], this.state.selections, {[index]:selection})
+    console.log(selections)
+    this.setState({ selections })
+  }
+
   incrementCurrentStep = () => {
     this.setState({currentStep: this.state.currentStep+1})
   }
@@ -13,6 +23,7 @@ class Cards extends React.Component{
         questions={this.props.questions}
         currentStep={this.state.currentStep}
         goToNextStep={this.incrementCurrentStep}
+        addToSelections={this.addToSelections}
       />
     )
   }
