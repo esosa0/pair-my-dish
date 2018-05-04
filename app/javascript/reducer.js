@@ -1,15 +1,14 @@
-module.exports = function reducer (state, action) {
-  if (action.type === 'CHOOSE_ITEM') {
-    return {
-      ...state,
-      questions: state.questions.map((question, index) => {
-        if (index !== action.questionIndex) { return question }
-        return {
-          ...question,
-          currentSelections: question.currentSelections.concat(action.choice)
-        }
-      })
-    }
+const {UPDATE_CURRENT_SCREEN} = require('./actions')
+
+module.exports = function reducer(state, action) {
+  switch(action.type) {
+    case UPDATE_CURRENT_SCREEN:
+      return {
+        ...state,
+        currentScreen: action.payload.screenName,
+        currentScreenData: action.payload.data
+      }
+    default:
+      return state;
   }
-  return state
 }

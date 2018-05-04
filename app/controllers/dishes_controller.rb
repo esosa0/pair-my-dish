@@ -6,7 +6,7 @@ class DishesController < ApplicationController
       "ingredients": Ingredient.all.as_json,
       "cooking_methods": CookingMethod.all.as_json,
       "sauces": Sauce.all.as_json,
-      "aromas": Aroma.all.limit(12).as_json,
+      "sides": Side.all.limit(12).as_json,
     }.to_json.html_safe
   end
 

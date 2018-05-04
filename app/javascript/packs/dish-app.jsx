@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from '../reducer'
-import VisibleScreen from '../containers/VisibleScreen'
+import App from '../components/App'
 
-const { ingredients, cooking_methods, sauces, aromas } = JSON.parse(document.getElementById("initial-state-json").innerHTML)
-
+const { ingredients, cooking_methods, sauces, sides } = JSON.parse(document.getElementById("initial-state-json").innerHTML)
+console.log(reducer)
 let store = createStore(reducer, {
   questions: [
     {
@@ -26,7 +26,7 @@ let store = createStore(reducer, {
     },
     {
       text: "Does your dish have any of these flavors?",
-      choices: aromas,
+      choices: sides,
       currentSelections: [], 
     },
   ],
@@ -35,7 +35,7 @@ let store = createStore(reducer, {
 
 ReactDOM.render(
   <Provider store={store}>
-    <VisibleScreen />
+    <App />
   </Provider>,
   document.getElementById('dish-app')
 );

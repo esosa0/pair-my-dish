@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import CardsList from '../components/CardsList'
 import React from 'react'
+import * as actions from '../actions'
 
 class Cards extends React.Component{
   state = {
@@ -8,6 +9,31 @@ class Cards extends React.Component{
     selections: [],    
   }
 
+  getWines = () => {
+    const [
+      ingredient_id,
+      cooking_method_id,
+      sauce_id,
+      side_ids
+    ] = this.state.selections
+    return fetch('/api', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ingredient_id, 
+        cooking_method_id,
+        sauce_id,
+        side_ids
+      })
+    }).then(res => {
+      this.props.changeScreen('pairing', res);
+    }, err => {
+      console.log(err)
+    });
+  }
+  
   addToSelections = (selection, index) => {
     const selections = Object.assign([], this.state.selections, {[index]:selection})
     console.log(selections)
@@ -24,6 +50,7 @@ class Cards extends React.Component{
         currentStep={this.state.currentStep}
         goToNextStep={this.incrementCurrentStep}
         addToSelections={this.addToSelections}
+        onFinalStepSubmit={this.getWines}
       />
     )
   }
@@ -35,8 +62,8 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {}
+const mapDispatchToProps = {
+  changeScreen: actions.changeScreen
 }
 
 export default connect(
