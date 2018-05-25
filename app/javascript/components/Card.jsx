@@ -4,10 +4,14 @@ import classNames from 'classnames'
 
 
 class Card extends React.Component {
-
+  static defaultProps = {
+    shouldScroll: true
+  }
   getRef = (node) => this.nodeRef = node
   componentDidMount(){
-    this.nodeRef.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+    if(this.props.shouldScroll){
+      this.nodeRef.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+    }
   }
 
   render(){
