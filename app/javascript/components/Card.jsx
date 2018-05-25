@@ -24,7 +24,14 @@ class Card extends React.Component {
           <div className="choices">
             {this.props.children}
           </div>
-          <button className="next-button" type="button" onClick={this.props.onNextClick}>
+          <button 
+            className={classNames("next-button", {
+              "next-button--disabled": this.props.preventsNextClick
+            })}  
+            type="button" 
+            onClick={this.props.onNextClick} 
+            disabled={this.props.preventsNextClick}
+            >
             {this.props.buttonText}
           </button>
         </div>

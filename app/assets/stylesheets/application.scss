@@ -159,7 +159,15 @@ body {
   padding: 10px 70px;
   border-radius: 10px;
   border: 1px solid #979797;
-  margin-bottom: 1.5em;
+  &:hover{
+    background: rgba(216,216,216,0.31);
+  }
+}
+
+.next-button--disabled {
+  color: gray;
+  background-color: #eee;
+  cursor: not-allowed;
 }
 
 #save-dish:hover, #side-question-button:hover, #let-us-choose:hover, #view-all-pairings:hover {
@@ -174,8 +182,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   position: relative;
+  padding-bottom: 4rem;
 }
 
 .brand-title {

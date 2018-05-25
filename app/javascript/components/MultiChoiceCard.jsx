@@ -31,6 +31,8 @@ class MultiChoiceCard extends React.Component {
         text={this.props.text}
         buttonText={this.props.buttonText}
         onNextClick={this.props.onNextClick}
+        preventsNextClick={!Boolean(this.state.selectedChoices.length)}
+
       >
         {this.props.choices.map(({id, name}) =>
           <label 

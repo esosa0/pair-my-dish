@@ -5,7 +5,7 @@ import * as actions from '../actions'
 
 class Cards extends React.Component{
   state = {
-    currentStep: 1,
+    currentStep: 0,
     selections: [],    
   }
 
@@ -40,8 +40,8 @@ class Cards extends React.Component{
     this.setState({ selections })
   }
 
-  incrementCurrentStep = () => {
-    this.setState({currentStep: this.state.currentStep+1})
+  incrementCurrentStep = (index) => {
+    this.setState({currentStep: index})
   }
   render(){
     return (
