@@ -27,8 +27,9 @@ class Cards extends React.Component{
         sauce_id,
         side_ids
       })
-    }).then(res => {
-      this.props.changeScreen('pairing', res);
+    }).then(res => res.json())
+      .then(data => {
+      this.props.changeScreen('pairing', data);
     }, err => {
       console.log(err)
     });
