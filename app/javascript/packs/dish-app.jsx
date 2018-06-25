@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from '../reducer'
 import App from '../components/App'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 const { ingredients, cooking_methods, sauces, sides } = JSON.parse(document.getElementById("initial-state-json").innerHTML)
 console.log(reducer)
@@ -30,12 +31,17 @@ let store = createStore(reducer, {
       currentSelections: [], 
     },
   ],
-  currentScreen: "card list"
-})
+  currentScreen: "card list",
+}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <Route 
+        path="/"
+        component={App}
+      />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('dish-app')
 );

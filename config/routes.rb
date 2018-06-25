@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :sauces
   resources :sides
   resources :api 
+
+  get '/pairing', to: 'dishes#new'
 end

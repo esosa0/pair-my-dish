@@ -1,22 +1,20 @@
 import React from 'react'
 import Cards from '../containers/Cards'
-import { connect } from 'react-redux'
 import Pairing from './Pairing'
+import { Switch, Route } from 'react-router'
 
-const mapStateToProps = state => {
-  return {
-    currentScreen: state.currentScreen
-  }
-}
 
-const App = ({ currentScreen }) => {
-  if (currentScreen === 'card list'){
-    return <Cards />
-  }
-  if(currentScreen === 'pairing'){
-    return <Pairing />
-  } 
-  return null
-}
+const App = () =>
+  <Switch>
+    <Route
+      path="/"
+      exact={true}
+      component={Cards}
+    />
+    <Route 
+      path="/pairing"
+      component={Pairing} 
+    />
+  </Switch>
 
-export default connect(mapStateToProps)(App)
+export default App
