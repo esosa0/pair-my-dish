@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="126px" height="365px" viewBox="0 0 126 365" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>wine_bottle_pink_question</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-418.000000, -500.000000)">
+            <g id="wine_bottle_pink_question" transform="translate(436.000000, 513.000000)">
+                <path d="M25.3267606,83.0212383 L25.3267606,-4 L63.9139437,-4 L63.9139437,83.0204716 C64.1749736,83.3326052 64.6920334,83.6791382 65.4385187,83.9379856 C84.9917054,90.7202228 98.0759155,106.527103 98.0759155,124.561 L98.0759155,342.401 L-8.83267606,342.401 L-8.83267606,124.561 C-8.83267606,106.526534 4.25112264,90.7187152 23.804259,83.9377062 C24.5495732,83.6792649 25.0660965,83.3330349 25.3267606,83.0212383 Z" id="Shape" stroke="#019899" stroke-width="18" fill="#EFB3AB" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round"></path>
+                <rect id="Rectangle-Copy-2" fill="#019899" x="27.8873239" y="0" width="38.028169" height="35"></rect>
+                <text id="?-copy" stroke="#FFFFFF" font-family="Montserrat-ExtraBold, Montserrat" font-size="64" font-weight="600" fill="#019899">
+                    <tspan x="25.896" y="201">?</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
