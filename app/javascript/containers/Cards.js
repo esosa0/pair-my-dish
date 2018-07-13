@@ -5,17 +5,16 @@ import * as actions from '../actions'
 
 class Cards extends React.Component{
   state = {
-    currentStep: 0,
-    selections: [],    
+    currentStep: 0,    
   }
 
   getWines = () => {
     const [
-      ingredient_id,
-      cooking_method_id,
-      sauce_id,
+      {id: ingredient_id},
+      {id: cooking_method_id},
+      {id: sauce_id},
       side_ids
-    ] = this.state.selections
+    ] = this.props.selections
     return fetch('/api', {
       method: 'post',
       headers: {
@@ -25,25 +24,26 @@ class Cards extends React.Component{
         ingredient_id, 
         cooking_method_id,
         sauce_id,
-        side_ids
+        side_ids: side_ids.map(v => v.id)
       })
     }).then(res => res.json())
       .then(data => {
-      this.props.changeScreen('pairing', data);
+      this.props.saveWineList(data)
+      this.props.history.push('/pairing')
     }, err => {
       console.log(err)
     });
   }
   
   addToSelections = (selection, index) => {
-    const selections = Object.assign([], this.state.selections, {[index]:selection})
-    console.log(selections)
-    this.setState({ selections })
+    this.props.addSelection(selection, index)
   }
 
   incrementCurrentStep = (index) => {
+    console.log("set state")
     this.setState({currentStep: index})
   }
+
   render(){
     return (
       <CardsList 
@@ -59,12 +59,14 @@ class Cards extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    questions: state.questions
+    questions: state.questions,
+    selections: state.selections
   }
 }
 
 const mapDispatchToProps = {
-  changeScreen: actions.changeScreen
+  addSelection: actions.addSelection,
+  saveWineList: actions.saveWineList
 }
 
 export default connect(

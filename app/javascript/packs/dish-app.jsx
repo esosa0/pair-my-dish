@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import persistState from 'redux-localstorage'
 import reducer from '../reducer'
 import App from '../components/App'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 const { ingredients, cooking_methods, sauces, sides } = JSON.parse(document.getElementById("initial-state-json").innerHTML)
 console.log(reducer)
+const enhancer = compose(persistState(["wineList", "dishName"]))
 let store = createStore(reducer, {
   questions: [
     {
@@ -31,8 +33,8 @@ let store = createStore(reducer, {
       currentSelections: [], 
     },
   ],
-  currentScreen: "card list",
-}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  wineList: []//temp fix until questions can be moved into reducer
+}, enhancer)
 
 ReactDOM.render(
   <Provider store={store}>

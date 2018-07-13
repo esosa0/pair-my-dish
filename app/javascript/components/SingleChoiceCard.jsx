@@ -13,9 +13,9 @@ class SingleChoiceCard extends React.Component {
     selectedChoice: ""
   }
 
-  selectChoice = (id) => {
+  selectChoice = (id, name) => {
     this.setState({selectedChoice: id})
-    this.props.onChoiceSelection(id, this.props.step-1)
+    this.props.onChoiceSelection({id, name}, this.props.step-1)
   }
 
   render(){
@@ -38,7 +38,7 @@ class SingleChoiceCard extends React.Component {
               type="radio"
               value={id} name={`question${this.props.step}`} 
               className="ingredient-question-button" 
-              onChange={(event) => this.selectChoice(id)}
+              onChange={(event) => this.selectChoice(id, name)}
             />
             {name}
           </label>

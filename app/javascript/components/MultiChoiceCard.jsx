@@ -12,12 +12,12 @@ class MultiChoiceCard extends React.Component {
     selectedChoices: []
   }
 
-  selectChoices = (id, event) => {
+  selectChoices = (id, name, event) => {
     const selectedChoices = [...this.state.selectedChoices]
     if (event.target.checked){
-      selectedChoices.push(id)
+      selectedChoices.push({id, name})
     } else {
-      const index = selectedChoices.indexOf(id)
+      const index = selectedChoices.findIndex(value => value.id === id)
       selectedChoices.splice(index, 1)
     }
     this.setState({selectedChoices})
@@ -38,14 +38,14 @@ class MultiChoiceCard extends React.Component {
           <label 
             key = {id}
             className={classNames("radio-style", {
-              "active": this.state.selectedChoices.includes(id)
+              "active": this.state.selectedChoices.some(value => value.id === id)
             })} 
           >
             <input 
               type="checkbox"
               value={id} name={`question${this.props.step}`} 
               className="ingredient-question-button" 
-              onChange={(event) => this.selectChoices(id, event)}
+              onChange={(event) => this.selectChoices(id, name, event)}
             />
             {name}
           </label>

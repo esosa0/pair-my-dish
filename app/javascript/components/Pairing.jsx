@@ -6,9 +6,8 @@ import RedBottle from '../../assets/images/wine_bottle_red.svg'
 import { Link } from 'react-router-dom'
 import OtherWines from './OtherWines'
 
-const Pairing = (props) => {
-  console.log("props.data:", props.data)
-  const wineList = props.data
+const Pairing = ({wineList, selections, dishName}) => {
+  console.log("props.wineList:", wineList)
   const randomWine = (wineList[Math.floor(Math.random()*wineList.length)]);
   const wineBottle = (wine) => {
     if (wine.body < 4){
@@ -26,11 +25,10 @@ const Pairing = (props) => {
     }
     return <OtherWines wineName={wineName}/>
   }
-  
   // return props.data.map(wine => <div key={wine.id}>{wine.name}</div> )
   return(
     <section className="box">
-      <h3>The name of your dish goes here</h3>
+      <h3 className="capitalize">{dishName}</h3>
       <p>Goes well with</p>
       <h1 className="titleize pairing-name">{randomWine.name}</h1>
       <div className="pairing-bottles">
@@ -48,7 +46,9 @@ const Pairing = (props) => {
 }
 
 const mapStateToProps = state => ({
-  data: state.currentScreenData
+  wineList: state.wineList,
+  selections: state.selections,
+  dishName: state.dishName
 })
 
 export default connect(mapStateToProps)(Pairing)
