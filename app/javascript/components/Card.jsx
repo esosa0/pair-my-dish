@@ -4,19 +4,9 @@ import classNames from 'classnames'
 
 
 class Card extends React.Component {
-  static defaultProps = {
-    shouldScroll: true
-  }
-  getRef = (node) => this.nodeRef = node
-  componentDidMount(){
-    if(this.props.shouldScroll){
-      this.nodeRef.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
-    }
-  }
-
   render(){
     return (
-      <li className="card" ref={this.getRef}>
+      <li className="card">
         <img className="line" src={Line}/>
         <div className="box">
           <div className="question-step">
@@ -25,6 +15,9 @@ class Card extends React.Component {
           <h2 className="question-text">
             {this.props.text}
           </h2>
+          <p>
+            {this.props.blurb}
+          </p>
           <div className="choices">
             {this.props.children}
           </div>
