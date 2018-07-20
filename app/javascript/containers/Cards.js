@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import CardsList from '../components/CardsList'
 import React from 'react'
 import * as actions from '../actions'
+import { goToTop } from '@ludois/react-scrollable-anchor'
 
 class Cards extends React.Component{
   state = {
@@ -34,13 +35,12 @@ class Cards extends React.Component{
       console.log(err)
     });
   }
-  
+
   addToSelections = (selection, index) => {
     this.props.addSelection(selection, index)
   }
 
   incrementCurrentStep = (index) => {
-    console.log("set state")
     this.setState({currentStep: index})
   }
 

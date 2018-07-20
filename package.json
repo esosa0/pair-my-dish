@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "@ludois/react-scrollable-anchor": "^0.6.4",
     "@rails/webpacker": "^3.2.1",
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
