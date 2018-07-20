@@ -1,7 +1,13 @@
 class DishesController < ApplicationController
   def new
     @dish = Dish.new 
-    @user = User.new 
+    @user = User.new
+    @initial_state_json = {
+      "ingredients": Ingredient.all.as_json,
+      "cooking_methods": CookingMethod.all.as_json,
+      "sauces": Sauce.all.as_json,
+      "sides": Side.all.sample(12).as_json,
+    }.to_json.html_safe
   end
 
   def create

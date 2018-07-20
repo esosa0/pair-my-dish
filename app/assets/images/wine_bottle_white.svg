@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="126px" height="364px" viewBox="0 0 126 364" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>wine_bottle_white</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-258.000000, -64.000000)">
+            <g id="wine_bottle_white" transform="translate(276.000000, 77.000000)">
+                <path d="M25.578765,82.8880686 L25.578765,-4 L64.4186686,-4 L64.4186686,82.8872974 C64.6945805,83.2044241 65.2316447,83.5558538 66.001058,83.8190944 C85.7583215,90.5807464 99,106.364573 99,124.415008 L99,342 L-9,342 L-9,124.415008 C-9,106.364008 4.24126448,90.5792419 23.9984573,83.8188212 C24.7667072,83.5559787 25.303221,83.2048564 25.578765,82.8880686 Z" id="Shape" stroke="#019899" stroke-width="18" fill="#FFF9A3" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round"></path>
+                <rect id="Rectangle-Copy" fill="#019899" x="22.7586207" y="0" width="43.4482759" height="35"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

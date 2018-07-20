@@ -1,14 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700,800);
 @import url(http://fonts.googleapis.com/css?family=Courgette:400,700);
 
 html { 
-  background: image-url('food-drink-kitchen-cutting-board.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: image-url('topography.png');
+  background-repeat: repeat; 
+}
+
+a:hover {
+  color: #FF4040;
+  text-decoration: none;
+}
+
+a:focus{
+  text-decoration: none;
+}
+
+.link {
+  color: #009999;
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 #single-wine-list {
@@ -48,11 +62,16 @@ body {
 .radio-style {
   background-color: #009999;
   color: rgba(255, 255, 255, 1);
-  font-size: larger;
+  font-size: 18px;
   letter-spacing: 1px;
   margin: 1%;
-  padding: 10px;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  text-align: center;
+  padding: 20px;
+  text-transform: capitalize;
 }
 
 .sauce-style {
@@ -112,15 +131,6 @@ body {
     font-family: 'Courgette';
     color: #FF4040;
     font-size: 20px;
-
-/*
-    display: flex;
-    margin-left: 32px;
-    text-align: center;
-    white-space: normal;
-    width: 96px;
-    vertical-align: middle;
-*/
   }
 }
 
@@ -159,12 +169,23 @@ body {
   border-color: #708090;
 }
 
-#side-question-button {
+#side-question-button, .next-button {
   color: #FF4040;
   font-family: 'Courgette';
-  font-size: 25px;
+  font-size: 30px;
   background-color: #FFF;
-  border-color: #708090;
+  padding: 10px 70px;
+  border-radius: 10px;
+  border: 1px solid #979797;
+  &:hover{
+    background: rgba(216,216,216,0.31);
+  }
+}
+
+.next-button--disabled {
+  color: gray;
+  background-color: #eee;
+  cursor: not-allowed;
 }
 
 #save-dish:hover, #side-question-button:hover, #let-us-choose:hover, #view-all-pairings:hover {
@@ -172,10 +193,16 @@ body {
 }
 
 .box {
-  border-radius: 10px;
-  background-color: #FFF;
-  padding: 3%;
-  opacity: 0.90
+  min-height: 500px;	
+  border-radius: 10px;	
+  background-color: #FFFFFF;	
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-bottom: 4rem;
 }
 
 .brand-title {
@@ -250,3 +277,142 @@ div.hidden {
 .error-messages li {
   color: red;
 }
+
+.question-step {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #FF4040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1px solid #979797;
+  font-size: 60px;
+  position: absolute;
+  top: -50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+.card-list {
+  list-style: none;
+  padding-bottom: 500px;
+}
+
+.question-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  margin-top: 1.5em;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  grid-gap: 20px;
+  width: 75%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+nav {
+  display: none;
+}
+
+.line {
+  margin: 50px auto 100px;
+  display: block;
+}
+
+.card:first-child{ 
+  .line {
+    display: none;
+  }
+  .question-step {
+    display: none;
+  }
+  h2 {
+    color: #FF4040;
+    font-family: 'Courgette';
+    font-size: 50px;
+  }
+  p {
+    font-family: 'Montserrat';
+    font-size: 24px;
+    color: #4A4A4A;
+    max-width: 75%;
+    text-align: center;
+  }
+}
+
+.wine-bottle {
+  height: 30rem;
+  margin: 0 auto;
+}
+
+.titleize{
+  text-transform: capitalize;
+}
+
+.capitalize:first-letter{
+  text-transform: capitalize;
+}
+
+.pairing-bottles {
+  display: flex;
+}
+
+.pairing-bottle{
+  height: 40rem;
+  &:first-child{
+    transform: rotate(-20deg);
+  }
+  &:nth-child(2){
+    z-index: 2;
+  }
+  &:last-child {
+    transform: rotate(20deg);
+  }
+}
+
+.pairing-name {
+  position: absolute;
+  top: 275px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 2rem;
+  color: #FF4040;
+  font-family: 'Courgette';
+  font-size: 64px;
+  border: 1px solid #4A4A4A;
+}
+
+.other-wines {
+  font-family: "Montserrat";
+  font-size: 18px;
+  text-align: center;
+  margin: 4rem 0;
+  a, a:visited {
+    color: #019899;
+  }
+  a:hover {
+    color: #019899;
+    text-decoration: underline;
+  }
+}
+
+.dish-name {
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  margin: 4rem auto 0;
+}
+
+.dish-name-subheading{
+  font-family: "Montserrat";
+  font-size: 20px;
+  margin: 2rem auto 4rem;
+}
+

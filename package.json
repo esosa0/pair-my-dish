@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "dependencies": {
+    "@ludois/react-scrollable-anchor": "^0.6.4",
+    "@rails/webpacker": "^3.2.1",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^3.7.2",
+    "redux-localstorage": "^0.4.1"
+  },
+  "devDependencies": {
+    "jest": "^22.4.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/config/",
+      "<rootDir>/node_modules/"
+    ]
+  }
+}
