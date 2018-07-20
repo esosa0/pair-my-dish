@@ -6,43 +6,59 @@ import RedBottle from '../../assets/images/wine_bottle_red.svg'
 import { Link } from 'react-router-dom'
 import OtherWines from './OtherWines'
 
-const Pairing = ({wineList, selections, dishName}) => {
-  console.log("props.wineList:", wineList)
-  const randomWine = (wineList[Math.floor(Math.random()*wineList.length)]);
-  const wineBottle = (wine) => {
+class Pairing extends React.Component {
+  state = { 
+    currentWine: this.props.wineList[0], 
+    currentWineIndex: 0
+  }
+  
+  getWineBottle(wine) {
     if (wine.body < 4){
       return WhiteBottle
-    }else if(wine.body > 4){
+    } else if (wine.body > 4){
       return RedBottle
-    }else{
+    } else {
       return PinkBottle
     }
   }
 
-  const ShowOtherWines = ({moreThanOneWine, wineName}) => {
-    if (!moreThanOneWine) {
-      return null
-    }
-    return <OtherWines wineName={wineName}/>
+  setCurrentWine = () => {
+    const currentWineIndex = this.state.currentWineIndex < this.props.wineList.length - 1
+      ? this.state.currentWineIndex + 1
+      : 0
+    
+    this.setState({
+      currentWine: this.props.wineList[currentWineIndex], 
+      currentWineIndex 
+    })
   }
-  // return props.data.map(wine => <div key={wine.id}>{wine.name}</div> )
-  return(
-    <section className="box">
-      <h3 className="capitalize">{dishName}</h3>
-      <p>Goes well with</p>
-      <h1 className="titleize pairing-name">{randomWine.name}</h1>
-      <div className="pairing-bottles">
-        <img src={wineBottle(randomWine)} className="pairing-bottle"/>
-        <img src={wineBottle(randomWine)} className="pairing-bottle"/>
-        <img src={wineBottle(randomWine)} className="pairing-bottle"/>
-      </div>
-      <ShowOtherWines 
-        moreThanOneWine={wineList.length > 1}
-        wineName={randomWine.name}
-      />
-      <Link to={`/`} className="next-button">Get a new pairing</Link>
-    </section>
-  ) 
+
+  render(){
+    const {wineList, selections, dishName} = this.props 
+    const {currentWine} = this.state
+
+    return(
+      <section className="box">
+        <h3 className="capitalize dish-name">{dishName}</h3>
+        <p className="dish-name-subheading">goes well with</p>
+        <h1 className="titleize pairing-name">{currentWine.name}</h1>
+        <div className="pairing-bottles">
+          <img src={this.getWineBottle(currentWine)} className="pairing-bottle"/>
+          <img src={this.getWineBottle(currentWine)} className="pairing-bottle"/>
+          <img src={this.getWineBottle(currentWine)} className="pairing-bottle"/>
+        </div>
+
+        {wineList.length > 1 && 
+          <OtherWines 
+            wineName={currentWine.name} 
+            getNextWine={this.setCurrentWine} 
+          />
+        }
+
+        <Link to={`/`} className="next-button">Get a new pairing</Link>
+      </section>
+    ) 
+  }
 }
 
 const mapStateToProps = state => ({

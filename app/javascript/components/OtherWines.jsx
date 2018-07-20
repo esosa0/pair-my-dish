@@ -5,7 +5,7 @@ const OtherWines = (props) => {
   return (
     <div className="other-wines">
       <p>Don't like <span className="titleize">{props.wineName}?</span></p>
-      <p><a href="#"> See another wine</a> that goes nicely with your dish.</p>
+      <p><span className="link" onClick={props.getNextWine}> See another wine</span> that goes nicely with your dish.</p>
     </div>
   )
 }
