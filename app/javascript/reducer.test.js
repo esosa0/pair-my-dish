@@ -15,8 +15,5 @@ test('choosing an item', () => {
   }
   const newState = reducer(oldState, action)
 
-  console.log('old state:', oldState)
-  console.log('new state:', newState)
-
   expect(newState.questions[0].currentSelections).toEqual(['beef'])
 });

@@ -87,9 +87,6 @@ $(function() {
         side_ids: sideIds
       },
       success: handleResponse,
-      error: function (error) {
-        console.log('some error happenned');
-      }
     });
 
     function handleResponse(response) {
@@ -120,9 +117,6 @@ $(function() {
           $('#sign-up-modal .modal-body').html(response)
           $('#sign-up-modal').modal('show');
         },
-        error: function (error) {
-          console.log('some error happenned');
-        }
       });
     } else {
       $("#new_dish").submit();

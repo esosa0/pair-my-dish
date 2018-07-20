@@ -12,7 +12,6 @@ configureAnchors({offset: 50, scrollDuration: 300})
 removeHash()
 
 const { ingredients, cooking_methods, sauces, sides } = JSON.parse(document.getElementById("initial-state-json").innerHTML)
-console.log(reducer)
 const enhancer = compose(persistState(["wineList", "dishName"]))
 let store = createStore(reducer, {
   questions: [
