@@ -72,6 +72,7 @@ body {
   text-align: center;
   padding: 20px;
   text-transform: capitalize;
+  height: 100%;
 }
 
 .sauce-style {
@@ -202,6 +203,8 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  padding-right:1rem;
+  padding-left: 1rem;
   padding-bottom: 4rem;
 }
 
@@ -298,12 +301,15 @@ div.hidden {
 .card-list {
   list-style: none;
   padding-bottom: 500px;
+  padding-left: 0;
 }
 
 .question-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 48px;
   margin-top: 1.5em;
+  padding: 0 20px;
+  text-align: center;
 }
 
 .choices {
@@ -361,6 +367,7 @@ nav {
 
 .pairing-bottles {
   display: flex;
+  margin-bottom: 3rem;
 }
 
 .pairing-bottle{
@@ -408,6 +415,7 @@ nav {
   font-weight: bold;
   font-style: italic;
   margin: 4rem auto 0;
+  text-align: center;
 }
 
 .dish-name-subheading{
@@ -415,4 +423,79 @@ nav {
   font-size: 20px;
   margin: 2rem auto 4rem;
 }
+
+@media (min-width: 700px) {
+  #responsive-alert {
+    display: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .card:first-child p {
+    font-size: 16px;
+    max-width: 90%;
+  }
+
+  .card:first-child .choices {
+    grid-template-columns: repeat(auto-fit, minmax(30px, auto));
+  }
+
+  .choices {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .wine-bottle {
+    height: 15rem;
+  }
+
+  .next-button {
+    font-size: 20px;
+    padding: 10px 50px;
+  }
+
+  .card:first-child .question-text {  
+    font-size: 30px;
+  }
+
+  .question-text {
+    font-size: 25px;
+    padding: 0;
+    margin-top: 7rem;
+  }
+
+  .radio-style {
+    font-size: 14px;
+    padding: 1.5rem .5rem;
+  }
+
+  .question-step {
+    height: 70px;
+    width: 70px;
+    font-size: 40px;
+    font-size: 40px;
+    top: -35px;
+  }
+
+  .pairing-bottle {
+    height: 20rem;
+  }
+
+  .pairing-name {
+    font-size: 30px;
+    top: 270px;
+  }
+
+  .pairing-bottle {
+    height: 20rem;
+  }
+}
+
+
+
+
 
