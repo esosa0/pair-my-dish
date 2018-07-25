@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700,800);
-@import url(http://fonts.googleapis.com/css?family=Courgette:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Courgette:400,600,700);
 
 html { 
   background: image-url('topography.png');
@@ -72,7 +72,6 @@ body {
   text-align: center;
   padding: 20px;
   text-transform: capitalize;
-  height: 100%;
 }
 
 .sauce-style {
@@ -194,7 +193,6 @@ body {
 }
 
 .box {
-  min-height: 500px;	
   border-radius: 10px;	
   background-color: #FFFFFF;	
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
@@ -431,6 +429,9 @@ nav {
 }
 
 @media (max-width: 700px) {
+  body {
+    padding-top: 2rem;
+  }
   .card:first-child p {
     font-size: 16px;
     max-width: 90%;
@@ -442,6 +443,8 @@ nav {
 
   .choices {
     grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(7rem,auto);
+    align-items: initial;
     grid-gap: 5px;
     width: 100%;
     font-size: 14px;
@@ -487,11 +490,15 @@ nav {
 
   .pairing-name {
     font-size: 30px;
-    top: 270px;
+    top: 250px;
   }
 
   .pairing-bottle {
     height: 20rem;
+  }
+
+  .card-list {
+    padding-bottom: 0;
   }
 }
 
