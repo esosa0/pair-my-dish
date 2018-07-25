@@ -5,6 +5,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import persistState from 'redux-localstorage'
 import reducer from '../reducer'
 import App from '../components/App'
+import ScrollToTop from '../components/ScrollToTop'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { configureAnchors, removeHash } from '@ludois/react-scrollable-anchor'
 
@@ -46,10 +47,12 @@ let store = createStore(reducer, {
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Route 
-        path="/"
-        component={App}
-      />
+      <ScrollToTop>
+        <Route 
+          path="/"
+          component={App}
+        />
+      </ScrollToTop>
     </BrowserRouter>
   </Provider>,
   document.getElementById('dish-app')
