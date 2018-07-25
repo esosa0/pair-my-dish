@@ -8,7 +8,7 @@ import App from '../components/App'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { configureAnchors, removeHash } from '@ludois/react-scrollable-anchor'
 
-configureAnchors({offset: 50, scrollDuration: 300})
+configureAnchors({offset: 200, scrollDuration: 300})
 removeHash()
 
 const { ingredients, cooking_methods, sauces, sides } = JSON.parse(document.getElementById("initial-state-json").innerHTML)
