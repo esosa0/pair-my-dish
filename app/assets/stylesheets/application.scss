@@ -313,11 +313,12 @@ div.hidden {
 .choices {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+  grid-auto-rows: minmax(7rem,auto);
   grid-gap: 20px;
   width: 75%;
   margin-top: 50px;
   margin-bottom: 50px;
-  align-items: center;
+  align-items: initial;
 }
 
 nav {
@@ -443,8 +444,6 @@ nav {
 
   .choices {
     grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(7rem,auto);
-    align-items: initial;
     grid-gap: 5px;
     width: 100%;
     font-size: 14px;
