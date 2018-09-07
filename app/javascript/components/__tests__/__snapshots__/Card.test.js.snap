@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component renders a default card 1`] = `
+<li
+  className="card"
+>
+  <img
+    className="line"
+    src="test-file-stub"
+  />
+  <div
+    className="box"
+  >
+    <div
+      className="question-step"
+    />
+    <h2
+      className="question-text"
+    />
+    <p />
+    <div
+      className="choices"
+    />
+    <button
+      className="next-button"
+      type="button"
+    />
+  </div>
+</li>
+`;

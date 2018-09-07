@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardsList Component renders a default cards list 1`] = `
+<ul
+  className="card-list"
+>
+  <IntroCard
+    onNextClick={[Function]}
+  />
+  <ScrollableAnchor
+    id="main-ingredient"
+    key="0"
+  >
+    <SingleChoiceCard
+      buttonText="Next"
+      choices={
+        Array [
+          Object {
+            "id": "1",
+            "name": "fish",
+          },
+        ]
+      }
+      currentSelections={Array []}
+      onNextClick={[Function]}
+      slug="main-ingredient"
+      step={1}
+      text="What are you cooking?"
+    />
+  </ScrollableAnchor>
+  <ScrollableAnchor
+    id="cooking-method"
+    key="1"
+  >
+    <MultiChoiceCard
+      buttonText="Pair My Dish"
+      choices={
+        Array [
+          Object {
+            "id": "1",
+            "name": "fish",
+          },
+        ]
+      }
+      currentSelections={Array []}
+      slug="cooking-method"
+      step={2}
+      text="How are you cooking it?"
+    />
+  </ScrollableAnchor>
+</ul>
+`;

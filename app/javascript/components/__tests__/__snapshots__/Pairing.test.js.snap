@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pairing Component renders a default pairing component 1`] = `
+<section
+  className="box"
+>
+  <h3
+    className="capitalize dish-name"
+  >
+    Braised Beef with Mushroom
+  </h3>
+  <p
+    className="dish-name-subheading"
+  >
+    goes well with
+  </p>
+  <h1
+    className="titleize pairing-name"
+  >
+    Merlot
+  </h1>
+  <div
+    className="pairing-bottles"
+  >
+    <img
+      className="pairing-bottle"
+      src="test-file-stub"
+    />
+    <img
+      className="pairing-bottle"
+      src="test-file-stub"
+    />
+    <img
+      className="pairing-bottle"
+      src="test-file-stub"
+    />
+  </div>
+  <Link
+    className="next-button"
+    replace={false}
+    to="/"
+  >
+    Get a new pairing
+  </Link>
+</section>
+`;
+
+exports[`Pairing Component renders multiple wines 1`] = `
+<OtherWines
+  getNextWine={[Function]}
+  wineName="Merlot"
+/>
+`;
+
+exports[`Pairing Component renders next wine in a list when getNextWine is called 1`] = `
+<section
+  className="box"
+>
+  <h3
+    className="capitalize dish-name"
+  >
+    Braised Beef with Mushroom
+  </h3>
+  <p
+    className="dish-name-subheading"
+  >
+    goes well with
+  </p>
+  <h1
+    className="titleize pairing-name"
+  >
+    Merlot
+  </h1>
+  <div
+    className="pairing-bottles"
+  >
+    <img
+      className="pairing-bottle"
+      src="test-file-stub"
+    />
+    <img
+      className="pairing-bottle"
+      src="test-file-stub"
+    />
+    <img
+      className="pairing-bottle"
+      src="test-file-stub"
+    />
+  </div>
+  <OtherWines
+    getNextWine={[Function]}
+    wineName="Merlot"
+  />
+  <Link
+    className="next-button"
+    replace={false}
+    to="/"
+  >
+    Get a new pairing
+  </Link>
+</section>
+`;

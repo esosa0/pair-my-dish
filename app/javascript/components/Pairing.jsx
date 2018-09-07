@@ -6,12 +6,12 @@ import RedBottle from '../../assets/images/wine_bottle_red.svg'
 import { Link } from 'react-router-dom'
 import OtherWines from './OtherWines'
 
-class Pairing extends React.Component {
-  state = { 
-    currentWine: this.props.wineList[0], 
+export class Pairing extends React.Component {
+  state = {
+    currentWine: this.props.wineList[0],
     currentWineIndex: 0
   }
-  
+
   getWineBottle(wine) {
     if (wine.body < 4){
       return WhiteBottle

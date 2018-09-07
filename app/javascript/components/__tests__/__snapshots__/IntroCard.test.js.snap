@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IntroCard Component renders a default intro card 1`] = `
+<Card
+  blurb="We choose the perfect wine for your dish using pairing techniques from top sommeliers."
+  buttonText="Get Started"
+  shouldScroll={false}
+  text="Pair My Dish"
+>
+  <img
+    className="wine-bottle"
+    src="test-file-stub"
+  />
+  <img
+    className="wine-bottle"
+    src="test-file-stub"
+  />
+  <img
+    className="wine-bottle"
+    src="test-file-stub"
+  />
+</Card>
+`;

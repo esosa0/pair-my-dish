@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OtherWines Component renders a default OtherWines component 1`] = `
+<div
+  className="other-wines"
+>
+  <p>
+    Don't like 
+    <span
+      className="titleize"
+    >
+      ?
+    </span>
+  </p>
+  <p>
+    <span
+      className="link"
+    >
+       See another wine
+    </span>
+     that goes nicely with your dish.
+  </p>
+</div>
+`;
