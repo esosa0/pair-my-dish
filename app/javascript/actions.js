@@ -7,7 +7,22 @@ export const addSelection = (selection, index) => ({
   meta: {index}
 })
 
-export const saveWineList = (wineList) => ({
-  type: PUSH_WINE_LIST,
-  payload: {wineList}
-})
+export const saveWineList = (recipe) => (dispatch, getState) => {
+	console.log(getState())
+	return fetch('/api', {
+		method: 'post',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(recipe)
+	}).then(res => res.json())
+		.then(data => {
+			dispatch({
+				type: PUSH_WINE_LIST,
+				payload: {wineList:data}
+			})
+
+		}, err => {
+			console.log(err)
+		});
+}

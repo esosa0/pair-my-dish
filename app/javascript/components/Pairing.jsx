@@ -26,7 +26,7 @@ export class Pairing extends React.Component {
     const currentWineIndex = this.state.currentWineIndex < this.props.wineList.length - 1
       ? this.state.currentWineIndex + 1
       : 0
-    
+
     this.setState({
       currentWine: this.props.wineList[currentWineIndex], 
       currentWineIndex 
@@ -49,10 +49,10 @@ export class Pairing extends React.Component {
         </div>
 
         {wineList.length > 1 && 
-          <OtherWines 
-            wineName={currentWine.name} 
-            getNextWine={this.setCurrentWine} 
-          />
+            <OtherWines 
+              wineName={currentWine.name} 
+              getNextWine={this.setCurrentWine} 
+            />
         }
 
         <Link to={`/`} className="next-button">Get a new pairing</Link>

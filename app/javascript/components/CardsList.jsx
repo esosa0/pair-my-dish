@@ -5,6 +5,7 @@ import IntroCard from './IntroCard'
 import ScrollableAnchor, { goToAnchor } from '@ludois/react-scrollable-anchor'
 
 const CardsList = ({ questions, currentStep, goToNextStep, addToSelections, onFinalStepSubmit }) => {
+  console.log(questions)
   const questionElements = questions.map((question, index) => {
     const step = index+1
     if (step > currentStep) return false

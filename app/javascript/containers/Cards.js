@@ -16,24 +16,14 @@ class Cards extends React.Component{
       {id: sauce_id},
       side_ids
     ] = this.props.selections
-    return fetch('/api', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        ingredient_id, 
-        cooking_method_id,
-        sauce_id,
-        side_ids: side_ids.map(v => v.id)
-      })
-    }).then(res => res.json())
-      .then(data => {
-      this.props.saveWineList(data)
-      this.props.history.push('/pairing')
-    }, err => {
-      console.log(err)
-    });
+		this.props.saveWineList({
+			ingredient_id, 
+			cooking_method_id,
+			sauce_id,
+			side_ids: side_ids.map(v => v.id)
+		}).then(() => {
+			this.props.history.push('/pairing')
+		})
   }
 
   addToSelections = (selection, index) => {
